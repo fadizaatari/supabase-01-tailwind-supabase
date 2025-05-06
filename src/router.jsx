@@ -5,8 +5,10 @@ import Signin from "./components/Signin";
 import Dashboard from "./routes/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Test from "./components/Header";
+import Test2 from "./components/Test2";
 
 export const router = createBrowserRouter([
+  { path: "/test2", element: <Test2 /> },
   { path: "/", element: <App /> },
   { path: "/signup", element: <Signup /> },
   { path: "/signin", element: <Signin /> },

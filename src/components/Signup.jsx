@@ -1,3 +1,4 @@
+import { Toaster, toast } from "sonner";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
@@ -22,6 +23,11 @@ const Signup = () => {
         navigate("/dashboard"); // Navigate to dashboard on success
       } else {
         setError(result.error.message); // Show error message on failure
+        {
+          toast.error(result.error.message, {
+            duration: 2000,
+          });
+        }
       }
     } catch (err) {
       setError("An unexpected error occurred."); // Catch unexpected errors
@@ -88,11 +94,12 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-4  bg-green-600 text-white rounded-md  h-13"
+            className="w-full mt-4 bg-green-600 text-white rounded-md  h-13"
           >
             Sign Up
           </button>
-          {error && <p className="text-red-600 text-center pt-4">{error}</p>}
+          {/*error && <p className="text-red-600 text-center pt-4">{error}</p>*/}
+          {<Toaster position="top-right" richColors />}
         </form>
       </div>
     </div>
