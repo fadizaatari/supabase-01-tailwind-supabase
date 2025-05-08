@@ -1,3 +1,4 @@
+import { Toaster, toast } from "sonner";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
@@ -17,6 +18,11 @@ const Signin = () => {
 
     if (error) {
       setError(error); // Set the error message if sign-in fails
+      {
+        toast.error(error, {
+          duration: 2000,
+        });
+      }
 
       // Set a timeout to clear the error message after a specific duration (e.g., 3 seconds)
       setTimeout(() => {
@@ -67,11 +73,10 @@ const Signin = () => {
               placeholder="Password"
             />
           </div>
-
-          <button className="w-full mt-4 bg-green-600 text-white rounded-md  h-13">
+          <button className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800">
             Sign In
           </button>
-          {error && <p className="text-red-600 text-center pt-4">{error}</p>}
+          <Toaster position="top-right" richColors />
         </form>
       </div>
     </div>

@@ -211,7 +211,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-4 bg-green-600 text-white rounded-md  h-13"
+            className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800"
           >
             Sign Up
           </button>
