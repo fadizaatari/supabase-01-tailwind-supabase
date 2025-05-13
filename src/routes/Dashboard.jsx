@@ -31,7 +31,7 @@ const Dashboard = () => {
         <div>
           <MyButtonGreen
             onClick={handleSignOut}
-            caption="Sign Out"
+            caption="Sign Out 2"
             toolTip="Press here to Sign Out"
           ></MyButtonGreen>
           <Calendar></Calendar>
