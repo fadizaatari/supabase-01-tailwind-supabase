@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { MyCalendar, MyButtonGreen } from "../components/MyComponents";
 
+import { Calendar } from "@/components/ui/calendar";
+
 const Dashboard = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
@@ -32,6 +34,7 @@ const Dashboard = () => {
             caption="Sign Out"
             toolTip="Press here to Sign Out"
           ></MyButtonGreen>
+          <Calendar></Calendar>
         </div>
       </div>
     </div>
