@@ -1,5 +1,3 @@
-import { Calendar } from "@/components/ui/calendar";
-
 import {
   AlertDialog,
   AlertDialogAction,
@@ -20,19 +18,6 @@ import {
 } from "@/components/ui/tooltip";
 
 import React, { useState } from "react";
-
-export const MyCalendar = ({ BackColor }) => {
-  const [date, setDate] = useState(new Date());
-  const color =
-    "pt-5 pb-2 text-2xl text-white rounded-md border border-white" +
-    " " +
-    BackColor;
-  return (
-    <div className={color}>
-      <Calendar mode="single" selected={date} onSelect={setDate} />
-    </div>
-  );
-};
 
 export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
   return (
