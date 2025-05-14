@@ -27,9 +27,12 @@ const Dashboard = () => {
 
         <div>
           <MyButtonAlertDialog
-            onClickOK={handleSignOut}
-            onClickCancel={() => alert("Account Deleted")}
-            caption="Alert Dialog"
+            onClickDialog={handleSignOut}
+            buttonCaption="Sign Out"
+            alertDialogDescription="Choosing Yes will disconnect you from the current session"
+            alertDialogTitle="Are you sure you want to Sign Out?"
+            alertCancelText="No"
+            alertDialogText="Yes"
           />
           <MyButtonGreen
             onClick={handleSignOut}

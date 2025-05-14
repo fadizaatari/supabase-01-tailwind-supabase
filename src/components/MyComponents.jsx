@@ -44,38 +44,42 @@ export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
 };
 
 export function MyButtonAlertDialog({
-  caption = "",
-  onClickOK,
+  buttonCaption = "",
   onClickCancel,
+  onClickDialog,
+  alertDialogDescription = "",
+  alertCancelText = "",
+  alertDialogTitle = "",
+  alertDialogText = "",
 }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <button className="w-full mt-4 bg-blue-400 text-white rounded-md h-13 hover:bg-blue-700">
-          {caption}
+          {buttonCaption}
         </button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="bg-green-200 border-0">
+      <AlertDialogContent className="bg-white border-0">
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-red-500">
-            Are you absolutely sure?
+          <AlertDialogTitle className="text-black text-2xl">
+            {alertDialogTitle}
           </AlertDialogTitle>
-          <AlertDialogDescription className="text-blue-900">
-            " Are you sure you want to delete this account?
+          <AlertDialogDescription className="text-black text-1xl mt-2">
+            {alertDialogDescription}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel
             onClick={onClickCancel}
-            className="text-white bg-green-600 hover:bg-green-900 hover:text-white"
+            className="text-black bg-white hover:bg-gray-700 hover:text-white w-30 h-10 text-1xl"
           >
-            Cancel
+            {alertCancelText}
           </AlertDialogCancel>
           <AlertDialogAction
-            onClick={onClickOK}
-            className="text-white bg-red-600 hover:bg-red-900 hover:text-white"
+            onClick={onClickDialog}
+            className="text-white bg-black hover:bg-gray-700 hover:text-white w-30 h-10 text-1xl"
           >
-            Continue
+            {alertDialogText}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
