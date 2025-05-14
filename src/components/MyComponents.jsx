@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/tooltip";
 
 import React, { useState } from "react";
-import { Caption } from "react-day-picker";
 
 export const MyCalendar = ({ BackColor }) => {
   const [date, setDate] = useState(new Date());
