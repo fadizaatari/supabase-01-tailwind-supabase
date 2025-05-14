@@ -43,7 +43,11 @@ export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
   );
 };
 
-export function MyButtonAlertDialog({ caption = "" }) {
+export function MyButtonAlertDialog({
+  caption = "",
+  onClickOK,
+  onClickCancel,
+}) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -61,11 +65,14 @@ export function MyButtonAlertDialog({ caption = "" }) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="text-white bg-green-600 hover:bg-green-900 hover:text-white">
+          <AlertDialogCancel
+            onClick={onClickCancel}
+            className="text-white bg-green-600 hover:bg-green-900 hover:text-white"
+          >
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
-            onClick={() => alert("Account Deleted")}
+            onClick={onClickOK}
             className="text-white bg-red-600 hover:bg-red-900 hover:text-white"
           >
             Continue

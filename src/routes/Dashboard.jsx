@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-import {
-  MyCalendar,
-  MyButtonGreen,
-  MyButtonAlertDialog,
-} from "../components/MyComponents";
+import { MyButtonGreen, MyButtonAlertDialog } from "../components/MyComponents";
 
 const Dashboard = () => {
   const { session, signOut } = UserAuth();
@@ -30,7 +26,11 @@ const Dashboard = () => {
         <h2> {session?.user?.email}</h2>
 
         <div>
-          <MyButtonAlertDialog caption="Alert Dialog" />
+          <MyButtonAlertDialog
+            onClickOK={handleSignOut}
+            onClickCancel={() => alert("Account Deleted")}
+            caption="Alert Dialog"
+          />
           <MyButtonGreen
             onClick={handleSignOut}
             caption="Sign Out"
