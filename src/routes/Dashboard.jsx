@@ -28,7 +28,6 @@ const Dashboard = () => {
       <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
         <h1 className="pt-1 pb-5 text-2xl">Welcome to Supabase Dashboard</h1>
         <h2> {session?.user?.email}</h2>
-        <MyCalendar BackColor="bg-green-900" />
 
         <div>
           <MyButtonAlertDialog caption="Alert Dialog" />
