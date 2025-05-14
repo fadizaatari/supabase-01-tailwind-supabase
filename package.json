@@ -1,4 +1,4 @@
-  {
+{
   "name": "supasbase-01",
   "private": true,
   "version": "0.0.0",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.1.13",
     "@radix-ui/react-slot": "^1.2.2",
     "@radix-ui/react-tooltip": "^1.2.6",
     "@supabase/supabase-js": "^2.49.4",

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-import { MyCalendar, MyButtonGreen } from "../components/MyComponents";
+import {
+  MyCalendar,
+  MyButtonGreen,
+  MyButtonAlertDialog,
+} from "../components/MyComponents";
 
 const Dashboard = () => {
   const { session, signOut } = UserAuth();
@@ -27,6 +31,7 @@ const Dashboard = () => {
         <MyCalendar BackColor="bg-green-900" />
 
         <div>
+          <MyButtonAlertDialog caption="Alert Dialog" />
           <MyButtonGreen
             onClick={handleSignOut}
             caption="Sign Out"

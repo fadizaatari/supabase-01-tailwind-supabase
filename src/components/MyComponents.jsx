@@ -1,6 +1,18 @@
 import { Calendar } from "@/components/ui/calendar";
 
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -8,6 +20,7 @@ import {
 } from "@/components/ui/tooltip";
 
 import React, { useState } from "react";
+import { Caption } from "react-day-picker";
 
 export const MyCalendar = ({ BackColor }) => {
   const [date, setDate] = useState(new Date());
@@ -36,10 +49,45 @@ export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
         </TooltipTrigger>
         {toolTip && (
           <TooltipContent>
-            <p>{toolTip}</p>
+            <div className="text-black bg-yellow-50 text-1xl p-2 m-2 rounded-md">
+              {toolTip}
+            </div>
           </TooltipContent>
         )}
       </Tooltip>
     </TooltipProvider>
   );
 };
+
+export function MyButtonAlertDialog({ caption = "" }) {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <button className="w-full mt-4 bg-blue-400 text-white rounded-md h-13 hover:bg-blue-700">
+          {caption}
+        </button>
+      </AlertDialogTrigger>
+      <AlertDialogContent className="bg-green-200 border-0">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-red-500">
+            Are you absolutely sure?
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-blue-900">
+            " Are you sure you want to delete this account?
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel className="text-white bg-green-600 hover:bg-green-900 hover:text-white">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction
+            onClick={() => alert("Account Deleted")}
+            className="text-white bg-red-600 hover:bg-red-900 hover:text-white"
+          >
+            Continue
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
