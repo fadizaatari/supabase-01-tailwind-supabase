@@ -1,6 +1,9 @@
+import { Slider } from "@/components/ui/slider";
+import React, { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -17,16 +20,7 @@ const Profile = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-  const handleSignOut = async (e) => {
-    e.preventDefault();
-
-    try {
-      await signOut();
-      navigate("/");
-    } catch (err) {
-      setError("An unexpected error occurred."); // Catch unexpected errors
-    }
-  };
+  const [tt, setT] = useState(null);
   return (
     <div className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
       <div className="bg-gray-800 p-6 shadow-md text-white h-110">
@@ -36,7 +30,7 @@ const Profile = () => {
               className="bg-gray-200 data-[state=active]:bg-white"
               value="information"
             >
-              <h1 className="">Information</h1>
+              <h1 className="">Information {tt}</h1>
             </TabsTrigger>
             <TabsTrigger
               className="bg-gray-200 data-[state=active]:bg-white"
@@ -68,6 +62,13 @@ const Profile = () => {
                     id="username"
                     defaultValue=""
                     placeholder="Enter your user"
+                  />
+                  <Slider
+                    onValueChange={(value) => setT(value)}
+                    className="p-2"
+                    defaultValue={[33]}
+                    max={100}
+                    step={1}
                   />
                 </div>
               </CardContent>
