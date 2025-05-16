@@ -4,13 +4,12 @@ import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Dashboard from "./routes/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
-import Test2 from "./components/Test2";
 import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
 
 export const router = createBrowserRouter([
-  { path: "/test2", element: <Test2 /> },
+  { path: "/*", element: <NotFound /> },
   { path: "/", element: <App /> },
-
   { path: "/signup", element: <Signup /> },
   { path: "/signin", element: <Signin /> },
   {

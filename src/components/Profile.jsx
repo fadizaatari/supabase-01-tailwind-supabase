@@ -20,17 +20,18 @@ const Profile = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-  const [tt, setT] = useState(null);
+  const [tt, setT] = useState(100);
+
   return (
     <div className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
       <div className="bg-gray-800 p-6 shadow-md text-white h-110">
         <Tabs defaultValue="information" className="w-[400px] ">
-          <TabsList className="grid w-full grid-cols-2 bg-gray-200 h-10 rounded p-1.5 ">
+          <TabsList className="grid w-full grid-cols-2 bg-gray-200 h-10 rounded p-1.5">
             <TabsTrigger
               className="bg-gray-200 data-[state=active]:bg-white"
               value="information"
             >
-              <h1 className="">Information {tt}</h1>
+              <h1 className="">Information</h1>
             </TabsTrigger>
             <TabsTrigger
               className="bg-gray-200 data-[state=active]:bg-white"
@@ -63,12 +64,15 @@ const Profile = () => {
                     defaultValue=""
                     placeholder="Enter your user"
                   />
+
+                  <p className={tt}>{tt}</p>
                   <Slider
                     onValueChange={(value) => setT(value)}
-                    className="p-2"
-                    defaultValue={[33]}
-                    max={100}
-                    step={1}
+                    className="mt-2"
+                    defaultValue={[10]}
+                    min={100}
+                    max={500}
+                    step={100}
                   />
                 </div>
               </CardContent>
