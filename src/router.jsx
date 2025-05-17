@@ -5,6 +5,7 @@ import Signin from "./components/Signin";
 import Dashboard from "./routes/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
+import ReadRecord from "./components/ReadRecord";
 import NotFound from "./components/NotFound";
 
 export const router = createBrowserRouter([
@@ -25,6 +26,14 @@ export const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <Profile />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/read",
+    element: (
+      <PrivateRoute>
+        <ReadRecord />
       </PrivateRoute>
     ),
   },

@@ -17,13 +17,14 @@ const Dashboard = () => {
       setError("An unexpected error occurred."); // Catch unexpected errors
     }
   };
-  console.log(session);
+
   const [date, setDate] = useState(new Date());
   return (
     <div className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
       <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
         <h1 className="pt-1 pb-5 text-2xl">Welcome to Supabase Dashboard</h1>
         <h2> {session?.user?.email}</h2>
+        <h2> {session.user.id}</h2>
 
         <div>
           <MyButtonAlertDialog

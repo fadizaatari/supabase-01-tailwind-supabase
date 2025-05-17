@@ -30,6 +30,7 @@ const Signin = () => {
       }, 3000); // 3000 milliseconds = 3 seconds
     } else {
       // Redirect or perform any necessary actions after successful sign-in
+      console.log("Session:", session);
       navigate("/dashboard");
     }
 
