@@ -31,7 +31,7 @@ const Profile = () => {
               className="bg-gray-200 data-[state=active]:bg-white"
               value="information"
             >
-              <h1 className="">Information</h1>
+              <h1 className="">Personal Information</h1>
             </TabsTrigger>
             <TabsTrigger
               className="bg-gray-200 data-[state=active]:bg-white"
