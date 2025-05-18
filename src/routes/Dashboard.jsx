@@ -18,8 +18,6 @@ const Dashboard = () => {
       setError("An unexpected error occurred."); // Catch unexpected errors
     }
   };
-
-  const [date, setDate] = useState(new Date());
   return (
     <div>
       <div>

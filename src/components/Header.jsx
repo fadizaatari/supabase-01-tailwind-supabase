@@ -1,10 +1,23 @@
+import { IoMdLogOut } from "react-icons/io";
+import { AiFillDashboard } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { Separator } from "@/components/ui/separator";
 import { FaBars } from "react-icons/fa6";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { FaDatabase } from "react-icons/fa6";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Header = () => {
+  const { session, signOut } = UserAuth();
+  const handleSignOut = async (e) => {
+    try {
+      await signOut();
+    } catch (err) {
+      setError("An unexpected error occurred."); // Catch unexpected errors
+    }
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -30,22 +43,46 @@ const Header = () => {
         {isOpen && (
           <div className="absolute right-0 mt-2 w-28 bg-gray-800 rounded shadow-lg z-10">
             <Link
+              to="/dashboard"
+              className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+            >
+              <div className="flex items-center ">
+                <AiFillDashboard />
+                <p className="pl-2">Dashboard</p>
+              </div>
+            </Link>
+            <Link
               to="/profile"
               className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
             >
-              Profile
+              <div className="flex items-center ">
+                <CgProfile />
+                <p className="pl-2">Profile</p>
+              </div>
             </Link>
+
             <Link
               to="/read"
               className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
             >
-              My Data
+              <div className="flex items-center ">
+                <FaDatabase />
+                <p className="pl-2">My Data</p>
+              </div>
             </Link>
 
             <Separator className="mt-1 mb-1" />
-            <Link className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800">
-              Logout
-            </Link>
+
+            <button
+              className="block rounded py-2 px-4 w-full text-white hover:bg-white hover:text-gray-800 text-left cursor-pointer"
+              onClick={handleSignOut}
+            >
+              <div className="flex items-center ">
+                <IoMdLogOut />
+
+                <p className="pl-2">Logout</p>
+              </div>
+            </button>
           </div>
         )}
       </div>
