@@ -1,43 +1,46 @@
+import Header from "./Header";
+
 import { UserAuth } from "../context/AuthContext";
 
 import { people } from "./data.js";
-import {
-  calculateArea,
-  reverseString,
-  useSupabaseData,
-} from "./Myfunctions.js";
+import { useSupabaseData } from "./Myfunctions.js";
+import { ErrorFetchingData, LoadingData } from "./MyComponents.jsx";
 
 const ReadRecord = () => {
   const { session, signOut } = UserAuth();
-  const tableName = "profiles";
-  const id1 = session.user.id;
-  //const recordIdToRead = "4a644683-63ec-496b-af61-a6871c000790";
 
-  const { data, loading, error } = useSupabaseData(tableName, id1);
+  const tableName = "profiles";
+  const id = session.user.id;
+  const { data, loading, error } = useSupabaseData(tableName, id);
 
   if (loading) {
-    return <p className="bg-white text-red-400">Loading data...</p>;
+    return <LoadingData />;
   }
 
   if (error) {
-    return (
-      <p className="bg-white text-yellow-400">
-        Error fetching data: {error.message}
-      </p>
-    );
+    return <ErrorFetchingData error={error} />;
   }
 
   if (data) {
     const listItems = data.map((item) => (
       <li key={item.id}>
-        <p>
-          <b>{item.first_name}</b>
-          {" " + item.last_name + " "}
-          his id is {item.id}
-        </p>
+        <p>First Name: {item.first_name}</p>
+        <p>Last Name: {item.last_name}</p>
+        <p>Id: {item.id}</p>
       </li>
     ));
-    return <ul className="bg-amber-300">{listItems}</ul>;
+    return (
+      <div>
+        <div>
+          <Header />
+          <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
+            <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
+              <ul>{listItems}</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 };
 

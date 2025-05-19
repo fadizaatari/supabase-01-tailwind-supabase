@@ -86,3 +86,15 @@ export function MyButtonAlertDialog({
     </AlertDialog>
   );
 }
+
+export const LoadingData = () => {
+  return <p className="bg-black text-white text-sm">Loading data...</p>;
+};
+
+export const ErrorFetchingData = (error) => {
+  return (
+    <p className="bg-black text-red-500">
+      Error fetching data: {error.message}
+    </p>
+  );
+};
