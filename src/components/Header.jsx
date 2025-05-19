@@ -1,3 +1,4 @@
+import logo from "../assets/logo.png";
 import { IoMdLogOut } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
@@ -28,7 +29,10 @@ const Header = () => {
   return (
     <div className="bg-black border-gray-800 border-b-1 text-white fixed w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between">
       {/* Left side */}
-      <p className="text-1xl">Welcome to Supabase Trial</p>
+      <img src={logo} alt="My Company Logo" className="w-5 h-5" />
+      <p className="text-2xl font-orbitron">
+        Generator Consumption Billing System
+      </p>
       {/* Right side - Dropdown */}
       <div className="relative">
         <button
