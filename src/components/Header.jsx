@@ -1,3 +1,4 @@
+import { FcElectricity } from "react-icons/fc";
 import logo from "../assets/logo.png";
 import { IoMdLogOut } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
@@ -46,7 +47,7 @@ const Header = () => {
         </button>
 
         {isOpen && (
-          <div className="absolute right-0 mt-2 w-28 bg-gray-800 rounded shadow-lg z-10">
+          <div className="absolute right-0 mt-2 w-38 bg-gray-800 rounded shadow-lg z-10">
             <Link
               to="/dashboard"
               className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
@@ -67,12 +68,12 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/read"
+              to="/subscriptions"
               className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
             >
               <div className="flex items-center ">
                 <FaDatabase />
-                <p className="pl-2">My Data</p>
+                <p className="pl-2">My Subscriptions</p>
               </div>
             </Link>
 

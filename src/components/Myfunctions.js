@@ -47,7 +47,7 @@ import { useState, useEffect } from "react";
 
 import { supabase } from "../supabaseClient";
 
-export const useSupabaseData = (tableName, id) => {
+export const useSupabaseData = (tableName, fieldid, id) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -55,10 +55,11 @@ export const useSupabaseData = (tableName, id) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data: fetchedData, error: fetchError } = await supabase
-          .from(tableName)
-          .select("*")
-          .eq("id", id);
+        const {
+          data: fetchedData,
+          error: fetchError,
+          count,
+        } = await supabase.from(tableName).select("*").eq(fieldid, id);
 
         if (fetchError) {
           setError(fetchError);

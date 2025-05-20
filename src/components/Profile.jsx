@@ -26,7 +26,8 @@ const Profile = () => {
 
   const tableName = "profiles";
   const id = session.user.id;
-  const { data, loading, error } = useSupabaseData(tableName, id);
+  const fieldid = "id";
+  const { data, loading, error } = useSupabaseData(tableName, fieldid, id);
 
   if (loading) {
     return <LoadingData />;

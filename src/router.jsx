@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/read",
+    path: "/subscriptions",
     element: (
       <PrivateRoute>
         <ReadRecord />
