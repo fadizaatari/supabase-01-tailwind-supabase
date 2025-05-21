@@ -54,7 +54,7 @@ const ReadRecord = () => {
             <div className="xl:bg-blue-950 lg:bg-green-500 md:bg-red-200 sm:bg-blue-200 bg-yellow-250 min-w-100 rounded-md text-white grid-cols-1 sm:flex-row sm-flex-wrap sm:grid-cols-2 sm:min-w-120 md:flex-wrap md:grid-cols-3 md:min-w-190 xl:min-w-290 flex-wrap xl:grid-cols-2 lg:flex-wrap grid lg:grid-cols-3 lg:min-w-290 gap-2 justify-center p-3">
               {data.map((item) => (
                 <div
-                  className={`rounded text-black xl:w-140 lg:w-90 md:w-60 sm:w-70 w-full justify-center items-center flex flex-col  ${StatusDisplay(
+                  className={`rounded text-black w-full justify-center items-center flex flex-col  ${StatusDisplay(
                     item.status
                   )}`}
                 >
