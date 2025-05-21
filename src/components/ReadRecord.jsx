@@ -10,6 +10,23 @@ import {
   MyBlankPage,
 } from "./MyComponents.jsx";
 
+function StatusDisplay(status) {
+  let statusClasses = "";
+  switch (status) {
+    case "paid":
+      statusClasses = "bg-green-300";
+      break;
+    case "unpaid":
+      statusClasses = "bg-red-300";
+      break;
+    case "stopped":
+      statusClasses = "bg-orange-300";
+      break;
+    default:
+  }
+  return statusClasses;
+}
+
 const ReadRecord = () => {
   const { session, signOut } = UserAuth();
 
@@ -29,12 +46,18 @@ const ReadRecord = () => {
   if (data.length > 0) {
     return (
       <div>
-        <div>
-          <Header />
-          <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center bg-black text-white rounded-md text-lg ">
-            <div className=" bg-gray-800 rounded-md text-white flex sm:flex-row md:flex-wrap flex-wrap lg:flex-wrap gap-3 justify-center p-3">
+        <div className="left-0 h-screen w-screen flex-col justify-center items-center bg-black ">
+          <div>
+            <Header></Header>
+          </div>
+          <div className="bg-black justify-center align-middle p-10">
+            <div className="xl:bg-blue-950 lg:bg-green-500 md:bg-red-200 sm:bg-blue-200 bg-yellow-250 min-w-100 rounded-md text-white grid-cols-1 sm:flex-row sm-flex-wrap sm:grid-cols-2 sm:min-w-120 md:flex-wrap md:grid-cols-3 md:min-w-190 xl:min-w-290 flex-wrap xl:grid-cols-2 lg:flex-wrap grid lg:grid-cols-3 lg:min-w-290 gap-2 justify-center p-3">
               {data.map((item) => (
-                <div className="rounded bg-white text-black w-50 justify-center  items-center flex flex-col gap-2">
+                <div
+                  className={`rounded text-black xl:w-140 lg:w-90 md:w-60 sm:w-70 w-100 justify-center items-center flex flex-col  ${StatusDisplay(
+                    item.status
+                  )}`}
+                >
                   <p
                     key={item.id}
                     className="text-sm font-semibold text-center mb-3 uppercase"
@@ -45,13 +68,7 @@ const ReadRecord = () => {
                     {item.size}
                   </p>
 
-                  <p
-                    className={`"text-sm text-center mb-2 ${
-                      item.type === "FIXED"
-                        ? "text-red-500 font-black"
-                        : "text-green-800 font-black"
-                    }"`}
-                  >
+                  <p className="text-xl font-bold text-center mb-2">
                     {item.type}
                   </p>
                 </div>
