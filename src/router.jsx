@@ -7,8 +7,11 @@ import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
 import ReadRecord from "./components/ReadRecord";
 import NotFound from "./components/NotFound";
+import Test2 from "./components/Test2";
+import SubscriptionDetails from "./components/SubcriptionDetails";
 
 export const router = createBrowserRouter([
+  { path: "/test2", element: <Test2 /> },
   { path: "/*", element: <NotFound /> },
   { path: "/", element: <App /> },
   { path: "/signup", element: <Signup /> },
@@ -34,6 +37,14 @@ export const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <ReadRecord />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/subscriptions/:SubscriptionId",
+    element: (
+      <PrivateRoute>
+        <SubscriptionDetails />
       </PrivateRoute>
     ),
   },
