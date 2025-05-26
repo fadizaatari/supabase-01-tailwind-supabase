@@ -9,6 +9,7 @@ import ReadRecord from "./components/ReadRecord";
 import NotFound from "./components/NotFound";
 import Test2 from "./components/Test2";
 import SubscriptionDetails from "./components/SubcriptionDetails";
+import News from "./components/News";
 
 export const router = createBrowserRouter([
   { path: "/test2", element: <Test2 /> },
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <SubscriptionDetails />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/news",
+    element: (
+      <PrivateRoute>
+        <News />
       </PrivateRoute>
     ),
   },
