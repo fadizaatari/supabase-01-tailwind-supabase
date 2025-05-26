@@ -1,7 +1,9 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { SubscriptionStatus } from "./Myfunctions.js";
 import { Link, useNavigate } from "react-router-dom";
+
 import Header from "./Header";
+
 import React, { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { useSupabaseData } from "./Myfunctions.js";
