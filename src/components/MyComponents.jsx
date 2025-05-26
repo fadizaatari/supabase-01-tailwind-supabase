@@ -90,14 +90,20 @@ export function MyButtonAlertDialog({
 }
 
 export const LoadingData = () => {
-  return <p className="bg-black text-white text-sm">Loading data...</p>;
+  return (
+    <div className="flex flex-col h-screen">
+      <p className="bg-black text-white text-sm h-full">Loading data...</p>
+    </div>
+  );
 };
 
 export const ErrorFetchingData = (error) => {
   return (
-    <p className="bg-black text-red-500">
-      Error fetching data: {error.message}
-    </p>
+    <div className="flex flex-col h-screen">
+      <p className="bg-black text-red-500">
+        Error fetching data: {error.message}
+      </p>
+    </div>
   );
 };
 
