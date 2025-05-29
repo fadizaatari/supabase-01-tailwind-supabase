@@ -1,10 +1,8 @@
 import Header from "./Header";
 
-import * as React from "react";
-
 import AnnouncementList from "./AnnouncementList";
 
-const News = () => {
+const News2 = () => {
   return (
     <div>
       <Header />
@@ -25,4 +23,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default News2;
