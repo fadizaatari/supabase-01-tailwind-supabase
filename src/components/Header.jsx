@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-black border-gray-800 border-b-1 text-white fixed w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between">
+    <div className="fixed bg-black border-gray-800 border-b-1 text-white w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between ">
       {/* Left side */}
       <img src={logo} alt="My Company Logo" className="w-5 h-5" />
       {/* Middle side */}
@@ -38,7 +38,7 @@ const Header = () => {
       {/* Right side - Dropdown */}
       <div className="relative">
         <button
-          className="cursor-pointer bg-gray-800 text-white rounded-full p-2 hover:bg-white hover:text-gray-800 focus:outline-none"
+          className="cursor-pointer bg-gray-800 text-white rounded-full p-2 hover:bg-white hover:text-gray-800 focus:outline-none position-"
           onClick={toggleDropdown}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

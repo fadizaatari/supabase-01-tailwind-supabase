@@ -15,12 +15,7 @@ const NotFound = () => {
 
         <p
           className="text-white whitespace-pre-line p-2 font-bold h-2/4 
-           overflow-auto
-            text-3xl 
-        2xl:text-7xl
-        xl:text-5xl
-        md:text-4xl
-        sm:text-2xl"
+           overflow-auto text-3xl 2xl:text-7xl xl:text-5xl md:text-4xl sm:text-2xl"
         >
           {`
           It seems the Page you are looking for is not Found

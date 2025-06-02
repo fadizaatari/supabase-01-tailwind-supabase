@@ -52,35 +52,22 @@ const AnnouncementCard = ({ announcement }) => {
 
   return (
     <div
-      className={`${styles.bg} ${styles.border} grid grid-cols-1 rounded-md p-6 h-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1`}
+      className={`${styles.bg} ${styles.border}  rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 h-full w-full `}
     >
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center space-x-3">
-          <IconComponent className={`w-6 h-6 ${styles.iconColor}`} />
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              {announcement.title}
-            </h3>
-            <div className="flex items-center space-x-4 mt-1">
-              <span
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${styles.badge}`}
-              >
-                {announcement.priority.charAt(0).toUpperCase() +
-                  announcement.priority.slice(1)}{" "}
-                Priority
-              </span>
-              <div className="flex items-center text-sm text-gray-500">
-                <Calendar className="w-4 h-4 mr-1" />
-                {formatDate(announcement.date)}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <p className="text-gray-700 leading-relaxed mb-4">
         {announcement.description}
       </p>
+
+      {announcement.author && (
+        <div className="flex items-center justify-between">
+          <div className="text-sm text-gray-500">
+            By{" "}
+            <span className="font-medium text-gray-700">
+              {announcement.author}
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
