@@ -1,3 +1,4 @@
+import { FaRegNewspaper } from "react-icons/fa";
 import { FcElectricity } from "react-icons/fc";
 import logo from "../assets/logo.png";
 import { IoMdLogOut } from "react-icons/io";
@@ -28,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed bg-black border-gray-800 border-b-1 text-white w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between ">
+    <div className="bg-black fixed border-gray-800 border-b-1 text-white w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between ">
       {/* Left side */}
       <img src={logo} alt="My Company Logo" className="w-5 h-5" />
       {/* Middle side */}
@@ -74,6 +75,15 @@ const Header = () => {
               <div className="flex items-center ">
                 <FaDatabase />
                 <p className="pl-2">My Subscriptions</p>
+              </div>
+            </Link>
+            <Link
+              to="/news"
+              className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+            >
+              <div className="flex items-center ">
+                <FaRegNewspaper />
+                <p className="pl-2">News</p>
               </div>
             </Link>
 

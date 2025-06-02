@@ -1,4 +1,5 @@
 import {
+  ComponentBread,
   ErrorFetchingData,
   LoadingData,
   MyBlankPage,
@@ -29,7 +30,7 @@ const News = () => {
     return <ErrorFetchingData error={error} />;
   }
 
-  if (data.length === 0) {
+  if (data.length > 1000) {
     return (
       <div>
         <Header />
@@ -38,11 +39,18 @@ const News = () => {
     );
   }
   return (
-    <div>
+    <div className="bg-red-500 flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start">
       <Header />
-      <div className="w-screen flex flex-col justify-center align-center items-center overflow-hidden bg-black mx-auto h-screen position:sticky">
-        <div className="bg-gray-800 rounded-md h-[85%] w-[90%] grid grid-cols-1 overflow-x-hidden p-2">
-          <AnnouncementList datainfo={data} />
+      <ComponentBread smallcaption="News" largecaption="News" />
+      <div className="flex bg-blue-500 w-full h-full p-2">
+        <div className="bg-green-800 align-middle justify-center flex h-full w-full">
+          {data.length > 1 ? (
+            <div className="bg-gray-800 rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5">
+              {<AnnouncementList datainfo={data} />}
+            </div>
+          ) : (
+            <MyBlankPage title="No News to Tell for the Time being. Please come back later" />
+          )}
         </div>
       </div>
     </div>

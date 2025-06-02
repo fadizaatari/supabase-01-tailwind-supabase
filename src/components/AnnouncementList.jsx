@@ -50,7 +50,7 @@ const AnnouncementList = ({ datainfo }) => {
               loop: true,
             }}
           >
-            <div className="bg-green-600 p-5 h-100 grid grid-cols-1">
+            <div className="bg-green-600 p-5 h-85 grid grid-cols-1">
               <CarouselContent>
                 {/*{data.map((item) => ( */}
                 {datainfo.map((announcement) => (

@@ -1,5 +1,17 @@
 import Header from "./Header";
 
+import { FaHome } from "react-icons/fa";
+import { LuSlash } from "react-icons/lu";
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -109,16 +121,42 @@ export const ErrorFetchingData = (error) => {
 
 export const MyBlankPage = ({ title = "" }) => {
   return (
-    <div>
-      <div>
-        <Header />
-        <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
-          {title && (
-            <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
-              {title}
-            </div>
-          )}
+    <div className="bg-amber-200 h-full w-full align-middle items-center justify-center flex ">
+      {title && (
+        <div className="bg-gray-800 p-6 rounded-md text-white h-[80%] w-[90%] flex align-middle items-center justify-center text-4xl">
+          {title}
         </div>
+      )}
+    </div>
+  );
+};
+
+export const ComponentBread = ({ smallcaption, largecaption }) => {
+  return (
+    <div className="bg-black h-20 flex flex-row align-middle justify-between pt-10">
+      <Breadcrumb>
+        <BreadcrumbList className="text-lg">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/" className="ml-5 hover:text-white">
+              <FaHome />
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <LuSlash />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbLink className="hover:text-white">
+              {smallcaption}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <div>
+        <p className="text-white text-2xl">{largecaption}</p>
+      </div>
+      <div>
+        <p className="text-white text-2xl mr-5"></p>
       </div>
     </div>
   );

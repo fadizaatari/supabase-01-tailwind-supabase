@@ -40,9 +40,9 @@ const Profile = () => {
   if (data) {
     return (
       <div>
-        <div>
+        <div className="grid grid-cols-1 h-screen flex-col">
           <Header />
-          <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
+          <div className="h-full w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
             <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
               <Tabs defaultValue="information" className="w-[400px] ">
                 <TabsList className="grid w-full grid-cols-2 bg-gray-200 h-10 rounded p-1.5">
