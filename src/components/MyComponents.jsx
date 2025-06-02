@@ -1,5 +1,4 @@
-import Header from "./Header";
-
+import { cn } from "@/lib/utils";
 import { FaHome } from "react-icons/fa";
 import { LuSlash } from "react-icons/lu";
 
@@ -104,7 +103,7 @@ export function MyButtonAlertDialog({
 export const LoadingData = () => {
   return (
     <div className="flex flex-col h-screen">
-      <p className="bg-black text-white text-sm h-full">Loading data...</p>
+      <p className="bg-black text-white text-md h-full">Loading data...</p>
     </div>
   );
 };
@@ -112,14 +111,14 @@ export const LoadingData = () => {
 export const ErrorFetchingData = (error) => {
   return (
     <div className="flex flex-col h-screen">
-      <p className="bg-black text-red-500">
+      <p className="bg-black text-red-500 text-md h-full">
         Error fetching data: {error.message}
       </p>
     </div>
   );
 };
 
-export const MyBlankPage = ({ title = "" }) => {
+export const ComponentBlankPage = ({ title = "" }) => {
   return (
     <div className="bg-amber-200 h-full w-full align-middle items-center justify-center flex ">
       {title && (
@@ -158,6 +157,26 @@ export const ComponentBread = ({ smallcaption, largecaption }) => {
       <div>
         <p className="text-white text-2xl mr-5"></p>
       </div>
+    </div>
+  );
+};
+
+export const ComponentDivLevel1 = ({ children }) => {
+  return (
+    <div className="bg-red-500 flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start">
+      {children}
+    </div>
+  );
+};
+
+export const ComponentDivLevel2 = ({ children }) => {
+  return <div className="flex bg-blue-500 w-full h-full p-2">{children}</div>;
+};
+
+export const ComponentDivLevel3 = ({ children }) => {
+  return (
+    <div className="bg-green-800 align-middle justify-center flex h-full w-full">
+      {children}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Signin from "./components/Signin";
 import Dashboard from "./routes/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
-import ReadRecord from "./components/ReadRecord";
+import Subscriptions from "./components/Subscriptions";
 import NotFound from "./components/NotFound";
 import Test2 from "./components/Test2";
 import SubscriptionDetails from "./components/SubcriptionDetails";
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
     path: "/subscriptions",
     element: (
       <PrivateRoute>
-        <ReadRecord />
+        <Subscriptions />
       </PrivateRoute>
     ),
   },

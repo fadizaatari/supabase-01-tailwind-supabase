@@ -1,15 +1,16 @@
 import {
-  ComponentBread,
   ErrorFetchingData,
   LoadingData,
-  MyBlankPage,
+  ComponentBlankPage,
+  ComponentBread,
+  ComponentDivLevel1,
+  ComponentDivLevel2,
+  ComponentDivLevel3,
 } from "./MyComponents.jsx";
 
 import Header from "./Header";
 import { UserAuth } from "../context/AuthContext";
 import { useSupabaseData } from "./Myfunctions.js";
-import * as React from "react";
-
 import AnnouncementList from "./AnnouncementList";
 
 const News = () => {
@@ -30,30 +31,22 @@ const News = () => {
     return <ErrorFetchingData error={error} />;
   }
 
-  if (data.length > 1000) {
-    return (
-      <div>
-        <Header />
-        <MyBlankPage title="No News to Tell for the Time being. Please come back later" />
-      </div>
-    );
-  }
   return (
-    <div className="bg-red-500 flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start">
+    <ComponentDivLevel1>
       <Header />
       <ComponentBread smallcaption="News" largecaption="News" />
-      <div className="flex bg-blue-500 w-full h-full p-2">
-        <div className="bg-green-800 align-middle justify-center flex h-full w-full">
-          {data.length > 1 ? (
+      <ComponentDivLevel2>
+        <ComponentDivLevel3>
+          {data.length > 0 ? (
             <div className="bg-gray-800 rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5">
               {<AnnouncementList datainfo={data} />}
             </div>
           ) : (
-            <MyBlankPage title="No News to Tell for the Time being. Please come back later" />
+            <ComponentBlankPage title="No News to Tell for the Time being. Please come back later" />
           )}
-        </div>
-      </div>
-    </div>
+        </ComponentDivLevel3>
+      </ComponentDivLevel2>
+    </ComponentDivLevel1>
   );
 };
 

@@ -11,7 +11,7 @@ import { useSupabaseData } from "./Myfunctions.js";
 import {
   ErrorFetchingData,
   LoadingData,
-  MyBlankPage,
+  ComponentBlankPage,
 } from "./MyComponents.jsx";
 
 const SubcriptionDetails = () => {
@@ -25,7 +25,7 @@ const SubcriptionDetails = () => {
   const isNumeric1 = Number.isFinite(Number(SubscriptionId));
 
   if (!isNumeric1) {
-    return <MyBlankPage title="Sorry. Subscription is not available" />;
+    return <ComponentBlankPage title="Sorry. Subscription is not available" />;
   }
 
   const { session, signOut } = UserAuth();
@@ -81,7 +81,7 @@ const SubcriptionDetails = () => {
     );
   } else {
     return (
-      <MyBlankPage title="Ummmm. It seems you don't have any Subscriptions attached to this Account" />
+      <ComponentBlankPage title="Ummmm. It seems you don't have any Subscriptions attached to this Account" />
     );
   }
 };
