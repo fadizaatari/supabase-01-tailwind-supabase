@@ -30,7 +30,7 @@ import {
 } from "@/components/ui/tooltip";
 
 const TestingMode = false;
-
+let bgColorBlankPage = "bg-black";
 let bgColorLevel1 = "bg-black";
 let bgColorLevel2 = "bg-black";
 let bgColorLevel3 = "bg-black";
@@ -40,6 +40,7 @@ if (TestingMode) {
   bgColorLevel2 = "bg-blue-500";
   bgColorLevel3 = "bg-green-800";
   bgColorLevel4 = "bg-gray-800";
+  bgColorBlankPage = "bg-amber-200";
 }
 
 export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
@@ -78,7 +79,7 @@ export function MyButtonAlertDialog({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <button className="w-full mt-4 text-white rounded-md h-13 hover:bg-blue-700">
+        <button className="w-full mt-4 text-white rounded-md h-13 hover:bg-blue-700 bg-blue-900">
           {buttonCaption}
         </button>
       </AlertDialogTrigger>
@@ -130,7 +131,9 @@ export const ErrorFetchingData = (error) => {
 
 export const ComponentBlankPage = ({ title = "" }) => {
   return (
-    <div className="bg-amber-200 h-full w-full align-middle items-center justify-center flex ">
+    <div
+      className={`h-full w-full align-middle items-center justify-center flex ${bgColorBlankPage}`}
+    >
       {title && (
         <div className="bg-gray-800 p-6 rounded-md text-white h-[80%] w-[90%] flex align-middle items-center justify-center text-4xl">
           {title}
