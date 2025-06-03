@@ -6,6 +6,7 @@ import {
   ComponentDivLevel1,
   ComponentDivLevel2,
   ComponentDivLevel3,
+  ComponentDivLevel4,
 } from "./MyComponents.jsx";
 
 import Header from "./Header";
@@ -38,9 +39,9 @@ const News = () => {
       <ComponentDivLevel2>
         <ComponentDivLevel3>
           {data.length > 0 ? (
-            <div className="bg-gray-800 rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5">
+            <ComponentDivLevel4>
               {<AnnouncementList datainfo={data} />}
-            </div>
+            </ComponentDivLevel4>
           ) : (
             <ComponentBlankPage title="No News to Tell for the Time being. Please come back later" />
           )}

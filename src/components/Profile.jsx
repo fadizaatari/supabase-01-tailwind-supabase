@@ -1,4 +1,14 @@
-import { LoadingData } from "./MyComponents.jsx";
+import {
+  ErrorFetchingData,
+  LoadingData,
+  ComponentBlankPage,
+  ComponentBread,
+  ComponentDivLevel1,
+  ComponentDivLevel2,
+  ComponentDivLevel3,
+  ComponentDivLevel4,
+} from "./MyComponents.jsx";
+
 import { useSupabaseData } from "./Myfunctions.js";
 import { Slider } from "@/components/ui/slider";
 import React, { useState } from "react";
@@ -37,14 +47,15 @@ const Profile = () => {
     return <ErrorFetchingData error={error} />;
   }
 
-  if (data) {
-    return (
-      <div>
-        <div className="grid grid-cols-1 h-screen flex-col">
-          <Header />
-          <div className="h-full w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
-            <div className="bg-gray-800 p-6 rounded-md shadow-md text-white">
-              <Tabs defaultValue="information" className="w-[400px] ">
+  return (
+    <ComponentDivLevel1>
+      <Header />
+      <ComponentBread smallcaption="Profile" largecaption="My Profile" />
+      <ComponentDivLevel2>
+        <ComponentDivLevel3>
+          {data.length > 0 ? (
+            <ComponentDivLevel4>
+              <Tabs defaultValue="information" className="flex flex-col w-full">
                 <TabsList className="grid w-full grid-cols-2 bg-gray-200 h-10 rounded p-1.5">
                   <TabsTrigger
                     className="bg-gray-200 data-[state=active]:bg-white"
@@ -124,16 +135,22 @@ const Profile = () => {
                   </Card>
                 </TabsContent>
               </Tabs>
-
-              <button className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800">
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+              <div className="grid grid-cols-2 gap-8">
+                <button className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800">
+                  Save
+                </button>
+                <button className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800">
+                  Cancel
+                </button>
+              </div>
+            </ComponentDivLevel4>
+          ) : (
+            <ComponentBlankPage title="No Profile found" />
+          )}
+        </ComponentDivLevel3>
+      </ComponentDivLevel2>
+    </ComponentDivLevel1>
+  );
 };
 
 export default Profile;

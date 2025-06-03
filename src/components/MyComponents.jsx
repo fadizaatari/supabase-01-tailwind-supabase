@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import { FaHome } from "react-icons/fa";
 import { LuSlash } from "react-icons/lu";
 
@@ -30,7 +29,18 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import React, { useState } from "react";
+const TestingMode = false;
+
+let bgColorLevel1 = "bg-black";
+let bgColorLevel2 = "bg-black";
+let bgColorLevel3 = "bg-black";
+let bgColorLevel4 = "bg-gray-800";
+if (TestingMode) {
+  bgColorLevel1 = "bg-red-500";
+  bgColorLevel2 = "bg-blue-500";
+  bgColorLevel3 = "bg-green-800";
+  bgColorLevel4 = "bg-gray-800";
+}
 
 export const MyButtonGreen = ({ caption = "", onClick, toolTip = "" }) => {
   return (
@@ -68,7 +78,7 @@ export function MyButtonAlertDialog({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <button className="w-full mt-4 bg-blue-400 text-white rounded-md h-13 hover:bg-blue-700">
+        <button className="w-full mt-4 text-white rounded-md h-13 hover:bg-blue-700">
           {buttonCaption}
         </button>
       </AlertDialogTrigger>
@@ -163,19 +173,35 @@ export const ComponentBread = ({ smallcaption, largecaption }) => {
 
 export const ComponentDivLevel1 = ({ children }) => {
   return (
-    <div className="bg-red-500 flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start">
+    <div
+      className={`flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start ${bgColorLevel1}`}
+    >
       {children}
     </div>
   );
 };
 
 export const ComponentDivLevel2 = ({ children }) => {
-  return <div className="flex bg-blue-500 w-full h-full p-2">{children}</div>;
+  return (
+    <div className={`flex w-full h-full p-2 ${bgColorLevel2}`}>{children}</div>
+  );
 };
 
 export const ComponentDivLevel3 = ({ children }) => {
   return (
-    <div className="bg-green-800 align-middle justify-center flex h-full w-full">
+    <div
+      className={`align-middle justify-center flex h-full w-full ${bgColorLevel3}`}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const ComponentDivLevel4 = ({ children }) => {
+  return (
+    <div
+      className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5 ${bgColorLevel4}`}
+    >
       {children}
     </div>
   );

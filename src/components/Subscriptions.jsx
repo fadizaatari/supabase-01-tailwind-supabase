@@ -16,6 +16,7 @@ import {
   ComponentDivLevel1,
   ComponentDivLevel2,
   ComponentDivLevel3,
+  ComponentDivLevel4,
 } from "./MyComponents.jsx";
 
 const Subscriptions = () => {
@@ -61,7 +62,7 @@ const Subscriptions = () => {
       <ComponentDivLevel2>
         <ComponentDivLevel3>
           {data.length > 0 ? (
-            <div className="bg-gray-800 rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5">
+            <ComponentDivLevel4>
               <div className="w-full h-10 m-0 py-1 px-6 flex items-center justify-between rounded bg-black">
                 <div className="flex items-center space-x-2">
                   <Checkbox
@@ -136,7 +137,7 @@ const Subscriptions = () => {
                   ))}
                 </div>
               )}
-            </div>
+            </ComponentDivLevel4>
           ) : (
             <ComponentBlankPage title="Ummmm. It seems you don't have any Subscriptions attached to this Account" />
           )}
