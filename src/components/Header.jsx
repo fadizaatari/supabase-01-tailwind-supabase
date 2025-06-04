@@ -1,3 +1,4 @@
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { FaRegNewspaper } from "react-icons/fa";
 import { FcElectricity } from "react-icons/fc";
 import logo from "../assets/logo.png";
@@ -8,9 +9,62 @@ import { Separator } from "@/components/ui/separator";
 import { FaBars } from "react-icons/fa6";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa6";
-import React, { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+
+const ThemeContext = createContext(null);
+
+const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
+};
+// 3. Theme Provider Component
+// This component wraps your application and provides the theme context to its children.
+const ThemeProvider = ({ children }) => {
+  // Initialize theme from localStorage or default to 'light'
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    return storedTheme || "light";
+  });
+
+  // Effect to update the 'theme' class on the body element
+  // and store the theme in localStorage whenever it changes.
+  useEffect(() => {
+    const root = document.documentElement; // Get the root HTML element
+    if (theme === "dark") {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
+
+  // Function to toggle the theme
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+const ThemedIcon = () => {
+  const { theme } = useTheme();
+  return (
+    <div className="flex flex-col align-middle justify-center items-center p-2 cursor-pointer w-full text-2xl">
+      {/* Conditionally render the icon based on the theme */}
+      {theme === "light" ? <FaMoon /> : <FaSun />}
+    </div>
+  );
+};
 
 const Header = () => {
   const { session, signOut } = UserAuth();
@@ -74,7 +128,7 @@ const Header = () => {
               to="/subscriptions"
               className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
             >
-              <div className="flex items-center ">
+              <div className="flex items-center">
                 <FaDatabase />
                 <p className="pl-2">My Subscriptions</p>
               </div>
@@ -89,7 +143,7 @@ const Header = () => {
               </div>
             </Link>
 
-            <Separator className="mt-1 mb-1" />
+            <Separator className="mt-1 mb-1 bg-white dark:bg-gray-500" />
 
             <button
               className="block rounded py-2 px-4 w-full text-white hover:bg-white hover:text-gray-800 text-left cursor-pointer"
@@ -101,6 +155,12 @@ const Header = () => {
                 <p className="pl-2">Logout</p>
               </div>
             </button>
+            <Separator className="mt-1 mb-1 bg-white dark:bg-gray-500" />
+            <div className="bg-gray-800 flex flex-col">
+              <ThemeProvider>
+                <ThemeContent />
+              </ThemeProvider>
+            </div>
           </div>
         )}
       </div>
@@ -109,3 +169,13 @@ const Header = () => {
 };
 
 export default Header;
+
+// Separate component to consume theme context within ThemeProvider
+const ThemeContent = () => {
+  const { theme, toggleTheme } = useTheme();
+  return (
+    <div onClick={toggleTheme}>
+      <ThemedIcon />
+    </div>
+  );
+};
