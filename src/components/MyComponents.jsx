@@ -32,8 +32,8 @@ import {
 const TestingMode = false;
 let bgColorBlankPage = "bg-black";
 let bgColorLevel1 = "bg-black";
-let bgColorLevel2 = "bg-black";
-let bgColorLevel3 = "bg-black";
+let bgColorLevel2 = "dark:bg-black bg-white";
+let bgColorLevel3 = "dark:bg-black bg-white";
 let bgColorLevel4 = "bg-gray-800";
 if (TestingMode) {
   bgColorLevel1 = "bg-red-500";
@@ -145,9 +145,15 @@ export const ComponentBlankPage = ({ title = "" }) => {
 
 export const ComponentBread = ({ smallcaption, largecaption }) => {
   return (
-    <div className="bg-black h-20 flex flex-row align-middle justify-between pt-10">
+    <div
+      className="dark:bg-black bg-white h-20 flex flex-row align-middle justify-between pt-10
+      
+      border-black
+    border-b-1
+    dark:border-MyGray"
+    >
       <Breadcrumb>
-        <BreadcrumbList className="text-lg">
+        <BreadcrumbList className="text-lg text-black dark:text-white">
           <BreadcrumbItem>
             <BreadcrumbLink href="/" className="ml-5 hover:text-white">
               <FaHome />
@@ -165,7 +171,7 @@ export const ComponentBread = ({ smallcaption, largecaption }) => {
       </Breadcrumb>
 
       <div>
-        <p className="text-white text-2xl">{largecaption}</p>
+        <p className="dark:text-white text-black text-2xl ">{largecaption}</p>
       </div>
       <div>
         <p className="text-white text-2xl mr-5"></p>

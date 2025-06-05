@@ -54,8 +54,10 @@ const ThemeContent = () => {
   return (
     <div onClick={toggleTheme}>
       <div
-        className="flex rounded-full hover:bg-MyGray flex-col align-middle justify-center
-       items-center p-2 cursor-pointer h-full w-full text-2xl focus:outline-none"
+        className="flex rounded-full flex-col align-middle justify-center
+       items-center p-2 cursor-pointer h-full w-full text-2xl focus:outline-none
+       dark:bg-white dark:text-black bg-black text-white
+       hover:bg-MyGray hover:text-white"
       >
         {theme === "light" ? <FaMoon size={10} /> : <FaSun size={10} />}
       </div>
@@ -80,13 +82,16 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-black fixed border-gray-800 border-b-1 text-white w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between">
+    <div
+      className="dark:bg-black bg-white fixed
+    border-gray-800 border-b-1 text-white w-full text-xs h-10 m-0 py-1 px-6 flex items-center justify-between"
+    >
       {/* Left side */}
       <Link to="/">
         <img src={logo} alt="My Company Logo" className="w-5 h-5" />
       </Link>
       {/* Middle side */}
-      <p className="sm:text-sm md:text-2xl lg:text-3xl font-orbitron">
+      <p className="sm:text-sm md:text-2xl lg:text-3xl dark:bg-black dark:text-white bg-white text-black font-orbitron">
         Electricity Generator Consumption Billing
       </p>
       {/* Right side - Dropdown */}
@@ -97,7 +102,11 @@ const Header = () => {
 
         <div className="relative">
           <button
-            className="cursor-pointer bg-gray-800 text-white rounded-full p-2 hover:bg-white hover:text-gray-800 focus:outline-none"
+            className="cursor-pointer rounded-full p-2
+            focus:outline-none flex flex-col align-middle justify-center
+            items-center  h-full w-full text-1xl 
+           bg-black text-white dark:text-black dark:bg-white
+           hover:bg-MyGray hover:text-white"
             onClick={toggleDropdown}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
