@@ -55,7 +55,10 @@ const Profile = () => {
         <ComponentDivLevel3>
           {data.length > 0 ? (
             <ComponentDivLevel4>
-              <Tabs defaultValue="information" className="flex flex-col w-full">
+              <Tabs
+                defaultValue="information"
+                className="flex flex-col w-full h-full"
+              >
                 <TabsList className="grid w-full grid-cols-2 bg-gray-200 h-10 rounded p-1.5">
                   <TabsTrigger
                     className="bg-gray-200 data-[state=active]:bg-white"
@@ -71,7 +74,7 @@ const Profile = () => {
                   </TabsTrigger>
                 </TabsList>
                 <TabsContent value="information">
-                  <Card className="h-70">
+                  <Card className="h-70 bg-white text-black">
                     <CardHeader>
                       <CardTitle>Information</CardTitle>
                       <CardDescription>
@@ -113,7 +116,7 @@ const Profile = () => {
                   </Card>
                 </TabsContent>
                 <TabsContent value="password">
-                  <Card className="h-70">
+                  <Card className="h-70 bg-white text-black">
                     <CardHeader>
                       <CardTitle>Password</CardTitle>
                       <CardDescription>

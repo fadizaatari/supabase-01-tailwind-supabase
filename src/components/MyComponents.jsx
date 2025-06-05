@@ -30,7 +30,7 @@ import {
 } from "@/components/ui/tooltip";
 
 const TestingMode = false;
-let bgColorBlankPage = "bg-black";
+let bgColorBlankPage = "dark:bg-black bg-white";
 let bgColorLevel1 = "bg-black";
 let bgColorLevel2 = "dark:bg-black bg-white";
 let bgColorLevel3 = "dark:bg-black bg-white";
@@ -114,7 +114,9 @@ export function MyButtonAlertDialog({
 export const LoadingData = () => {
   return (
     <div className="flex flex-col h-screen">
-      <p className="bg-black text-white text-md h-full">Loading data...</p>
+      <p className="dark:bg-black dark:text-white bg-white text-black text-md h-full px-5">
+        Loading data...
+      </p>
     </div>
   );
 };
@@ -135,7 +137,7 @@ export const ComponentBlankPage = ({ title = "" }) => {
       className={`h-full w-full align-middle items-center justify-center flex ${bgColorBlankPage}`}
     >
       {title && (
-        <div className="bg-gray-800 p-6 rounded-md text-white h-[80%] w-[90%] flex align-middle items-center justify-center text-4xl">
+        <div className="dark:bg-gray-800  bg-gray-500 p-6 rounded-md text-white h-[80%] w-[90%] flex align-middle items-center justify-center text-4xl">
           {title}
         </div>
       )}
@@ -155,7 +157,7 @@ export const ComponentBread = ({ smallcaption, largecaption }) => {
       <Breadcrumb>
         <BreadcrumbList className="text-lg text-black dark:text-white">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/" className="ml-5 hover:text-white">
+            <BreadcrumbLink href="/" className="ml-5  ">
               <FaHome />
             </BreadcrumbLink>
           </BreadcrumbItem>

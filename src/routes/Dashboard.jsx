@@ -22,8 +22,8 @@ const Dashboard = () => {
     <div>
       <div>
         <Header />
-        <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center p-10 bg-black text-white rounded-md text-lg">
-          <div className="dark:bg-gray-800  bg-yellow-800 p-6 rounded-md shadow-md text-white">
+        <div className=" top-0 left-0 h-screen w-screen flex justify-center items-center p-10 dark:bg-black bg-white text-white rounded-md text-lg">
+          <div className="bg-MyGray  p-6 rounded-md shadow-md text-white">
             <h2> {session?.user?.email}</h2>
             <h2> {session.user.id}</h2>
 
