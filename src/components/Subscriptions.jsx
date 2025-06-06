@@ -145,12 +145,12 @@ const Subscriptions = () => {
                           {item.size}
                         </p>
                         <div className="flex flex-row w-full">
-                          <div className="w-4/5 flex  align-middle justify-center">
+                          <div className="w-full flex  align-middle justify-center">
                             <p className="text-xl font-bold text-center mb-2">
                               {item.type}
                             </p>
                           </div>
-                          <div className="w-1/5 flex min-h-full align-top justify-end items-end">
+                          <div className="w-1/7 flex min-h-full align-top justify-end items-end pr-2">
                             <button onClick={handleButtonClick}>
                               <DrawerDemo />
                             </button>
@@ -197,11 +197,18 @@ export function DrawerDemo() {
           </div>
           <DrawerFooter>
             <div className="grid grid-cols-2 gap-10">
-              <button className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer">
+              <button
+                className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer dark:hover:bg-MyGray
+                hover:bg-MyGray dark:hover:text-white hover:text-white"
+              >
                 Submit
               </button>
               <DrawerClose asChild>
-                <button className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer">
+                <button
+                  className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer dark:hover:bg-MyGray
+                hover:bg-MyGray dark:hover:text-white hover:text-white 
+                "
+                >
                   Cancel
                 </button>
               </DrawerClose>
