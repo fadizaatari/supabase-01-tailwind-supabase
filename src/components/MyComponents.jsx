@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 import { FaHome } from "react-icons/fa";
 import { LuSlash } from "react-icons/lu";
 
@@ -194,14 +196,19 @@ export const ComponentDivLevel1 = ({ children }) => {
 
 export const ComponentDivLevel2 = ({ children }) => {
   return (
-    <div className={`flex w-full h-full p-2 ${bgColorLevel2}`}>{children}</div>
+    <div
+      className={`flex w-full h-full p-2 
+      ${bgColorLevel2}`}
+    >
+      {children}
+    </div>
   );
 };
 
 export const ComponentDivLevel3 = ({ children }) => {
   return (
     <div
-      className={`align-middle justify-center flex h-full w-full ${bgColorLevel3}`}
+      className={`align-middle justify-center flex h-full w-full transition-transform duration-3000 ${bgColorLevel3}}`}
     >
       {children}
     </div>
@@ -209,9 +216,22 @@ export const ComponentDivLevel3 = ({ children }) => {
 };
 
 export const ComponentDivLevel4 = ({ children }) => {
+  const [move, setMove] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMove(false);
+    }, 0); // Start moving after 500ms
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
-      className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5 ${bgColorLevel4}`}
+      className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5
+        transition-transform duration-500
+         ${move ? "translate-x-[300px]" : "translate-x-0"}
+         
+         ${bgColorLevel4}`}
     >
       {children}
     </div>
