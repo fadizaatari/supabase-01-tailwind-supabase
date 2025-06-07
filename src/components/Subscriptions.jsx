@@ -182,7 +182,7 @@ const DrawerDemo = ({ item }) => {
           </button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="flex flex-col align-top items-center justify-center">
+          <div className="flex flex-col align-top items-center justify-center w-screen">
             <DrawerHeader>
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
@@ -190,7 +190,8 @@ const DrawerDemo = ({ item }) => {
               </DrawerDescription>
               <div
                 className="border-1 dark:border-white border-black h-2/3 grid grid-cols-2 align-middle justify-center items-center
-              min-w-200 dark:hover:bg-MyGray hover:bg-MyGray hover:text-white
+              w-screen max-w-200
+               dark:hover:bg-MyGray hover:bg-MyGray hover:text-white
                dark:bg-black dark:text-white
               bg-white text-black rounded-full
               
@@ -211,19 +212,7 @@ const DrawerDemo = ({ item }) => {
               </div>
             </DrawerHeader>
             <DrawerFooter>
-              <div className="grid grid-cols-1 gap-10 min-w-50">
-                <button
-                  hidden
-                  className="h-10 bg-white text-black rounded-md cursor-pointer
-                 border-1 border-black dark:border-white 
-                 dark:text-white dark:bg-background
-                 dark:hover:bg-MyGray dark:hover:text-white
-                 hover:bg-MyGray hover:text-white
-                 disabled:italic disabled:cursor-none disabled:hidden
-                 "
-                >
-                  Submit
-                </button>
+              <div className="grid grid-cols-1 w-screen px-10 max-w-100 align-middle items-center justify-center">
                 <DrawerClose asChild>
                   <button
                     className="h-10 bg-white text-black rounded-md cursor-pointer
