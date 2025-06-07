@@ -56,10 +56,6 @@ const Subscriptions = () => {
   const fieldid = "userid";
   const { data, loading, error } = useSupabaseData(tableName, fieldid, id);
 
-  const handleButtonClick = (event) => {
-    event.preventDefault(); // Stop the click event from bubbling up to the div
-  };
-
   if (loading) {
     return <LoadingData />;
   }
@@ -151,9 +147,7 @@ const Subscriptions = () => {
                             </p>
                           </div>
                           <div className="w-1/7 flex min-h-full align-top justify-end items-end pr-2">
-                            <button onClick={handleButtonClick}>
-                              <DrawerDemo />
-                            </button>
+                            <DrawerDemo item={item} />
                           </div>
                         </div>
                       </div>
@@ -173,49 +167,79 @@ const Subscriptions = () => {
 
 export default Subscriptions;
 
-export function DrawerDemo() {
+const DrawerDemo = ({ item }) => {
+  const styleLabel = "font-bold text-right pr-2";
+  const styleField = "text-left uppercase pl-2";
+  const handleButtonClick = (event) => {
+    event.preventDefault(); // Stop the click event from bubbling up to the div
+  };
   return (
-    <Drawer>
-      <DrawerTrigger asChild>
-        <button className="text-black">
-          <FaCircleInfo size={25} />
-        </button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <div className="mx-auto w-full max-w-sm">
-          <DrawerHeader>
-            <DrawerTitle>Subscription Details</DrawerTitle>
-            <DrawerDescription>
-              You can find all the details here below
-            </DrawerDescription>
-          </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              <div className="flex-1 text-center"></div>
-            </div>
-            <div className="mt-3 h-[120px]"></div>
-          </div>
-          <DrawerFooter>
-            <div className="grid grid-cols-2 gap-10">
-              <button
-                className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer dark:hover:bg-MyGray
-                hover:bg-MyGray dark:hover:text-white hover:text-white"
+    <button onClick={handleButtonClick}>
+      <Drawer>
+        <DrawerTrigger asChild>
+          <button className="text-black">
+            <FaCircleInfo size={25} />
+          </button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="flex flex-col align-top items-center justify-center">
+            <DrawerHeader>
+              <DrawerTitle>Subscription Details</DrawerTitle>
+              <DrawerDescription>
+                You can find all the details here below
+              </DrawerDescription>
+              <div
+                className="border-1 dark:border-white border-black h-2/3 grid grid-cols-2 align-middle justify-center items-center
+              min-w-200 dark:hover:bg-MyGray hover:bg-MyGray hover:text-white
+               dark:bg-black dark:text-white
+              bg-white text-black rounded-full
+              
+              "
               >
-                Submit
-              </button>
-              <DrawerClose asChild>
+                <p className={styleLabel}>Id:</p>
+                <p className={styleField}>{item.id}</p>
+                <p className={styleLabel}>Sequence:</p>
+                <p className={styleField}>{item.seq}</p>
+                <p className={styleLabel}>Description:</p>
+                <p className={styleField}>{item.address}</p>
+                <p className={styleLabel}>Size:</p>
+                <p className={styleField}>{item.size}</p>
+                <p className={styleLabel}>Type:</p>
+                <p className={styleField}>{item.type}</p>
+                <p className={styleLabel}>Status:</p>
+                <p className={styleField}>{item.status}</p>
+              </div>
+            </DrawerHeader>
+            <DrawerFooter>
+              <div className="grid grid-cols-1 gap-10 min-w-50">
                 <button
-                  className="h-10 dark:bg-white dark:text-black bg-black text-white round-md cursor-pointer dark:hover:bg-MyGray
-                hover:bg-MyGray dark:hover:text-white hover:text-white 
-                "
+                  hidden
+                  className="h-10 bg-white text-black rounded-md cursor-pointer
+                 border-1 border-black dark:border-white 
+                 dark:text-white dark:bg-background
+                 dark:hover:bg-MyGray dark:hover:text-white
+                 hover:bg-MyGray hover:text-white
+                 disabled:italic disabled:cursor-none disabled:hidden
+                 "
                 >
-                  Cancel
+                  Submit
                 </button>
-              </DrawerClose>
-            </div>
-          </DrawerFooter>
-        </div>
-      </DrawerContent>
-    </Drawer>
+                <DrawerClose asChild>
+                  <button
+                    className="h-10 bg-white text-black rounded-md cursor-pointer
+                 border-1 border-black dark:border-white 
+                 dark:text-white dark:bg-background
+                 dark:hover:bg-MyGray dark:hover:text-white
+                 hover:bg-MyGray hover:text-white"
+                  >
+                    Exit
+                  </button>
+                </DrawerClose>
+              </div>
+            </DrawerFooter>
+          </div>
+        </DrawerContent>
+      </Drawer>
+    </button>
   );
-}
+};
