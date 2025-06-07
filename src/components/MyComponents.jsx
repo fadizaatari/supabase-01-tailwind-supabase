@@ -224,13 +224,13 @@ export const ComponentDivLevel4 = ({ children }) => {
     }, 0); // Start moving after 500ms
     return () => clearTimeout(timer);
   }, []);
-
+  //${move ? "translate-x-[300px]" : "translate-x-0"}
   return (
     <div
       className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5
         transition-transform duration-500
-         ${move ? "translate-x-[300px]" : "translate-x-0"}
          
+
          ${bgColorLevel4}`}
     >
       {children}
