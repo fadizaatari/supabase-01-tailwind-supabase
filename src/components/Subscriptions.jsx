@@ -181,14 +181,14 @@ const DrawerDemo = ({ item }) => {
             <FaCircleInfo size={25} />
           </button>
         </DrawerTrigger>
-        <DrawerContent>
-          <div className="flex flex-col align-top items-center justify-center w-screen bg-blue-500 p-1 h-full">
-            <DrawerHeader className="bg-red-500">
+        <DrawerContent className="h-80 max-h-100">
+          <div className="flex flex-col  landscape:flex-row  align-top items-center justify-center bg-blue-500">
+            <DrawerHeader className="bg-red-500 p-1 w-full">
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
                 You can find all the details here below
               </DrawerDescription>
-              <div className="bg-red-400 p-5 w-screen">
+              <div className="bg-red-400 p-5 w-full">
                 <div
                   className="border-1 dark:border-white border-black
                 grid grid-cols-2 align-middle justify-center items-center
@@ -214,7 +214,7 @@ const DrawerDemo = ({ item }) => {
                 </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter className="flex bg-red-950 w-full">
+            <DrawerFooter className="flex bg-red-950 w-full h-full flex-col align-middle justify-center">
               <div className="flex flex-col px-10 w-full align-middle items-center justify-center">
                 <DrawerClose asChild>
                   <button
