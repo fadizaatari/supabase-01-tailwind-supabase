@@ -214,7 +214,7 @@ const DrawerDemo = ({ item }) => {
                 </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter className="flex bg-red-950 w-full h-1/3">
+            <DrawerFooter className="flex bg-red-950 w-full">
               <div className="flex flex-col px-10 w-full align-middle items-center justify-center">
                 <DrawerClose asChild>
                   <button
