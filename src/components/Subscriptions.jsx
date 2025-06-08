@@ -223,7 +223,7 @@ const DrawerDemo = ({ item }) => {
                  dark:text-white dark:bg-background
                  dark:hover:bg-MyGray dark:hover:text-white
                  hover:bg-MyGray hover:text-white
-                 w-full h-[70%]
+                 w-full h-full
                  "
                   >
                     Exit
