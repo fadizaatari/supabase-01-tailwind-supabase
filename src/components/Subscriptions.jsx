@@ -182,8 +182,8 @@ const DrawerDemo = ({ item }) => {
           </button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="flex flex-col align-top items-center justify-center w-screen bg-blue-500">
-            <DrawerHeader className="bg-red-500 h-2/3">
+          <div className="flex flex-col align-top items-center justify-center w-screen bg-blue-500 p-1 h-full">
+            <DrawerHeader className="bg-red-500">
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
                 You can find all the details here below
