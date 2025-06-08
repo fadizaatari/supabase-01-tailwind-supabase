@@ -182,8 +182,8 @@ const DrawerDemo = ({ item }) => {
           </button>
         </DrawerTrigger>
         <DrawerContent className="h-80 max-h-100">
-          <div className="flex flex-col h-full w-full landscape:flex-row  align-middle items-center justify-center bg-blue-500 p-5">
-            <DrawerHeader className="bg-red-500 w-full h-full">
+          <div className="flex flex-col h-full w-full align-middle items-center justify-center p-0">
+            <DrawerHeader className="w-full h-full">
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
                 You can find all the details here below
@@ -214,7 +214,7 @@ const DrawerDemo = ({ item }) => {
                 </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter className="grid grid-cols-1 bg-red-950 w-full h-full align-middle justify-center items-center">
+            <DrawerFooter className="grid grid-cols-1 w-full h-full align-middle justify-center items-center">
               <div className="flex flex-col w-full h-full align-bottom items-center justify-center">
                 <DrawerClose asChild>
                   <button
