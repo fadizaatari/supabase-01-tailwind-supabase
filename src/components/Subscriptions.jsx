@@ -182,44 +182,49 @@ const DrawerDemo = ({ item }) => {
           </button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="flex flex-col align-top items-center justify-center w-screen">
-            <DrawerHeader>
+          <div className="flex flex-col align-top items-center justify-center w-screen bg-blue-500">
+            <DrawerHeader className="bg-red-500 h-2/3">
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
                 You can find all the details here below
               </DrawerDescription>
-              <div
-                className="border-1 dark:border-white border-black h-2/3 grid grid-cols-2 align-middle justify-center items-center
-              w-screen max-w-200
+              <div className="bg-red-400 p-5 w-screen">
+                <div
+                  className="border-1 dark:border-white border-black
+                grid grid-cols-2 align-middle justify-center items-center
+              
                dark:hover:bg-MyGray hover:bg-MyGray hover:text-white
                dark:bg-black dark:text-white
-              bg-white text-black rounded-full
+              bg-white text-black rounded-md
               
               "
-              >
-                <p className={styleLabel}>Id:</p>
-                <p className={styleField}>{item.id}</p>
-                <p className={styleLabel}>Sequence:</p>
-                <p className={styleField}>{item.seq}</p>
-                <p className={styleLabel}>Description:</p>
-                <p className={styleField}>{item.address}</p>
-                <p className={styleLabel}>Size:</p>
-                <p className={styleField}>{item.size}</p>
-                <p className={styleLabel}>Type:</p>
-                <p className={styleField}>{item.type}</p>
-                <p className={styleLabel}>Status:</p>
-                <p className={styleField}>{item.status}</p>
+                >
+                  <p className={styleLabel}>Id:</p>
+                  <p className={styleField}>{item.id}</p>
+                  <p className={styleLabel}>Sequence:</p>
+                  <p className={styleField}>{item.seq}</p>
+                  <p className={styleLabel}>Description:</p>
+                  <p className={styleField}>{item.address}</p>
+                  <p className={styleLabel}>Size:</p>
+                  <p className={styleField}>{item.size}</p>
+                  <p className={styleLabel}>Type:</p>
+                  <p className={styleField}>{item.type}</p>
+                  <p className={styleLabel}>Status:</p>
+                  <p className={styleField}>{item.status}</p>
+                </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter>
-              <div className="grid grid-cols-1 w-screen px-10 max-w-100 align-middle items-center justify-center">
+            <DrawerFooter className="flex bg-red-950 w-full h-1/3">
+              <div className="flex flex-col px-10 w-full align-middle items-center justify-center">
                 <DrawerClose asChild>
                   <button
                     className="h-10 bg-white text-black rounded-md cursor-pointer
                  border-1 border-black dark:border-white 
                  dark:text-white dark:bg-background
                  dark:hover:bg-MyGray dark:hover:text-white
-                 hover:bg-MyGray hover:text-white"
+                 hover:bg-MyGray hover:text-white
+                 w-1/2
+                 "
                   >
                     Exit
                   </button>
