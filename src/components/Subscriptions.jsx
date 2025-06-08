@@ -182,13 +182,13 @@ const DrawerDemo = ({ item }) => {
           </button>
         </DrawerTrigger>
         <DrawerContent className="h-80 max-h-100">
-          <div className="flex flex-col  landscape:flex-row  align-top items-center justify-center bg-blue-500">
-            <DrawerHeader className="bg-red-500 p-1 w-full">
+          <div className="flex flex-col h-full w-full landscape:flex-row  align-middle items-center justify-center bg-blue-500 p-5">
+            <DrawerHeader className="bg-red-500 w-full h-full">
               <DrawerTitle>Subscription Details</DrawerTitle>
               <DrawerDescription>
                 You can find all the details here below
               </DrawerDescription>
-              <div className="bg-red-400 p-5 w-full">
+              <div>
                 <div
                   className="border-1 dark:border-white border-black
                 grid grid-cols-2 align-middle justify-center items-center
@@ -196,7 +196,7 @@ const DrawerDemo = ({ item }) => {
                dark:hover:bg-MyGray hover:bg-MyGray hover:text-white
                dark:bg-black dark:text-white
               bg-white text-black rounded-md
-              
+              h-full
               "
                 >
                   <p className={styleLabel}>Id:</p>
@@ -214,16 +214,16 @@ const DrawerDemo = ({ item }) => {
                 </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter className="flex bg-red-950 w-full h-full flex-col align-middle justify-center">
-              <div className="flex flex-col px-10 w-full align-middle items-center justify-center">
+            <DrawerFooter className="grid grid-cols-1 bg-red-950 w-full h-full align-middle justify-center items-center">
+              <div className="flex flex-col w-full h-full align-bottom items-center justify-center">
                 <DrawerClose asChild>
                   <button
-                    className="h-10 bg-white text-black rounded-md cursor-pointer
+                    className="bg-white text-black rounded-md cursor-pointer
                  border-1 border-black dark:border-white 
                  dark:text-white dark:bg-background
                  dark:hover:bg-MyGray dark:hover:text-white
                  hover:bg-MyGray hover:text-white
-                 w-1/2
+                 w-full h-[70%]
                  "
                   >
                     Exit
