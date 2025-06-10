@@ -215,7 +215,7 @@ export const ComponentDivLevel3 = ({ children }) => {
   );
 };
 
-export const ComponentDivLevel4 = ({ children }) => {
+export const ComponentDivLevel4 = ({ children, marginTop = 5 }) => {
   const [move, setMove] = useState(true);
 
   useEffect(() => {
@@ -227,11 +227,14 @@ export const ComponentDivLevel4 = ({ children }) => {
   //${move ? "translate-x-[300px]" : "translate-x-0"}
   return (
     <div
-      className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden mt-5 p-5
+      className={`rounded-md h-[90%] w-[80%] flex flex-col overflow-x-hidden p-5
         transition-transform duration-500
          
 
-         ${bgColorLevel4}`}
+         ${bgColorLevel4}
+         mt-${marginTop}
+         
+         `}
     >
       {children}
     </div>

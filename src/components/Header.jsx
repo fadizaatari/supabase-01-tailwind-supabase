@@ -65,7 +65,7 @@ const ThemeContent = () => {
   );
 };
 
-const Header = () => {
+const Header = ({ showMenu = true }) => {
   const { session, signOut } = UserAuth();
   const handleSignOut = async (e) => {
     try {
@@ -95,79 +95,82 @@ const Header = () => {
         Electricity Generator Consumption Billing
       </p>
       {/* Right side - Dropdown */}
-      <div className="grid grid-cols-2 gap-3">
+
+      <div className={`grid ${showMenu ? "grid-cols-2 gap-3" : "grid-cols-1"}`}>
         <ThemeProvider>
           <ThemeContent />
         </ThemeProvider>
 
-        <div className="relative">
-          <button
-            className="cursor-pointer rounded-full p-2
+        {showMenu && (
+          <div className="relative">
+            <button
+              className="cursor-pointer rounded-full p-2
             focus:outline-none flex flex-col align-middle justify-center
             items-center  h-full w-full text-1xl 
            bg-black text-white dark:text-black dark:bg-white
            hover:bg-MyGray hover:text-white"
-            onClick={toggleDropdown}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {isHovered ? <FaBars /> : <FaBars />}
-          </button>
+              onClick={toggleDropdown}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              {isHovered ? <FaBars /> : <FaBars />}
+            </button>
 
-          {isOpen && (
-            <div className="absolute right-0 mt-2 w-38 bg-gray-800 rounded shadow-lg z-10">
-              <Link
-                to="/dashboard"
-                className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
-              >
-                <div className="flex items-center ">
-                  <AiFillDashboard />
-                  <p className="pl-2">Dashboard</p>
-                </div>
-              </Link>
-              <Link
-                to="/profile"
-                className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
-              >
-                <div className="flex items-center ">
-                  <CgProfile />
-                  <p className="pl-2">Profile</p>
-                </div>
-              </Link>
+            {isOpen && (
+              <div className="absolute right-0 mt-2 w-38 bg-gray-800 rounded shadow-lg z-10">
+                <Link
+                  to="/dashboard"
+                  className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+                >
+                  <div className="flex items-center ">
+                    <AiFillDashboard />
+                    <p className="pl-2">Dashboard</p>
+                  </div>
+                </Link>
+                <Link
+                  to="/profile"
+                  className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+                >
+                  <div className="flex items-center ">
+                    <CgProfile />
+                    <p className="pl-2">Profile</p>
+                  </div>
+                </Link>
 
-              <Link
-                to="/subscriptions"
-                className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
-              >
-                <div className="flex items-center">
-                  <FaDatabase />
-                  <p className="pl-2">My Subscriptions</p>
-                </div>
-              </Link>
-              <Link
-                to="/news"
-                className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
-              >
-                <div className="flex items-center ">
-                  <FaRegNewspaper />
-                  <p className="pl-2">News</p>
-                </div>
-              </Link>
+                <Link
+                  to="/subscriptions"
+                  className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+                >
+                  <div className="flex items-center">
+                    <FaDatabase />
+                    <p className="pl-2">My Subscriptions</p>
+                  </div>
+                </Link>
+                <Link
+                  to="/news"
+                  className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
+                >
+                  <div className="flex items-center ">
+                    <FaRegNewspaper />
+                    <p className="pl-2">News</p>
+                  </div>
+                </Link>
 
-              <Separator className="mt-1 mb-1 bg-white dark:bg-gray-500" />
+                <Separator className="mt-1 mb-1 bg-white dark:bg-gray-500" />
 
-              <button
-                className="block rounded py-2 px-4 w-full text-white hover:bg-white hover:text-gray-800 text-left cursor-pointer"
-                onClick={handleSignOut}
-              >
-                <div className="flex items-center ">
-                  <IoMdLogOut />
-                  <p className="pl-2">Logout</p>
-                </div>
-              </button>
-            </div>
-          )}
-        </div>
+                <button
+                  className="block rounded py-2 px-4 w-full text-white hover:bg-white hover:text-gray-800 text-left cursor-pointer"
+                  onClick={handleSignOut}
+                >
+                  <div className="flex items-center ">
+                    <IoMdLogOut />
+                    <p className="pl-2">Logout</p>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
