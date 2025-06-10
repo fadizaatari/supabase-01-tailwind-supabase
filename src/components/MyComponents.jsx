@@ -147,7 +147,7 @@ export const ComponentBlankPage = ({ title = "" }) => {
   );
 };
 
-export const ComponentBread = ({ smallcaption, largecaption }) => {
+export const ComponentBread = ({ smallcaption = "", largecaption = "" }) => {
   return (
     <div
       className="dark:bg-black bg-white h-20 flex flex-row align-middle justify-between pt-10
@@ -157,14 +157,14 @@ export const ComponentBread = ({ smallcaption, largecaption }) => {
     dark:border-MyGray"
     >
       <Breadcrumb>
-        <BreadcrumbList className="text-lg text-black dark:text-white">
+        <BreadcrumbList className="text-lg text-black dark:text-white h-full">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/" className="ml-5  ">
+            <BreadcrumbLink href="/" className="ml-5">
               <FaHome />
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
-            <LuSlash />
+            {smallcaption && <LuSlash />}
           </BreadcrumbSeparator>
           <BreadcrumbItem>
             <BreadcrumbLink className="hover:text-white">

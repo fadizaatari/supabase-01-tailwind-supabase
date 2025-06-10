@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import Header from "./Header";
 
 import {
+  ComponentBread,
   ComponentDivLevel1,
   ComponentDivLevel2,
   ComponentDivLevel3,
@@ -19,9 +20,10 @@ const NotFound = () => {
   return (
     <ComponentDivLevel1>
       <Header showMenu={false} />
+      <ComponentBread />
       <ComponentDivLevel2>
         <ComponentDivLevel3>
-          <ComponentDivLevel4 marginTop={15}>
+          <ComponentDivLevel4>
             <div className="align-middle justify-items items-center h-full shrink-0">
               <div className="flex w-full h-1/3">
                 <p className="text-red-500 whitespace-pre-line p-2 font-bold text-3xl">
@@ -39,8 +41,8 @@ const NotFound = () => {
 
                 <div className="flex flex-row gap-4 align-middle items-end">
                   <p
-                    className="font-bold 
-            text-3xl 2xl:text-6xl xl:text-4xl md:text-4xl sm:text-2xl"
+                    className="text-white font-bold 
+           text-3xl 2xl:text-6xl xl:text-4xl md:text-4xl sm:text-2xl"
                   >
                     Please check the URL or go back
                   </p>
