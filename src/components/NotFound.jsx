@@ -20,7 +20,7 @@ const NotFound = () => {
   return (
     <ComponentDivLevel1>
       <Header showMenu={false} />
-      <ComponentBread />
+      <ComponentBread showBorder={false} showHome={false} />
       <ComponentDivLevel2>
         <ComponentDivLevel3>
           <ComponentDivLevel4>

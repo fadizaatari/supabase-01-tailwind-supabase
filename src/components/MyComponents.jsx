@@ -85,7 +85,7 @@ export function MyButtonAlertDialog({
           {buttonCaption}
         </button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="bg-white border-0">
+      <AlertDialogContent className="bg-white border-1">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-black text-2xl">
             {alertDialogTitle}
@@ -147,21 +147,29 @@ export const ComponentBlankPage = ({ title = "" }) => {
   );
 };
 
-export const ComponentBread = ({ smallcaption = "", largecaption = "" }) => {
+export const ComponentBread = ({
+  smallcaption = "",
+  largecaption = "",
+  showBorder = true,
+  showHome = true,
+}) => {
   return (
     <div
-      className="dark:bg-black bg-white h-20 flex flex-row align-middle justify-between pt-10
+      //className={`flex flex-col pt-0 pl-0 pb-0 pr-0 w-screen h-screen justify-start ${bgColorLevel1}`}
+      className={`dark:bg-black bg-white h-20 flex flex-row align-middle justify-between pt-10
       
       border-black
-    border-b-1
-    dark:border-MyGray"
+    
+    dark:border-MyGray ${showBorder && "border-1"}`}
     >
       <Breadcrumb>
         <BreadcrumbList className="text-lg text-black dark:text-white h-full">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/" className="ml-5">
-              <FaHome />
-            </BreadcrumbLink>
+            {showHome && (
+              <BreadcrumbLink href="/" className="ml-5">
+                <FaHome />
+              </BreadcrumbLink>
+            )}
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             {smallcaption && <LuSlash />}
