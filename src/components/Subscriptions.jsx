@@ -168,6 +168,7 @@ const Subscriptions = () => {
 export default Subscriptions;
 
 const DrawerDemo = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const styleLabel = "font-bold text-right pr-2";
   const styleField = "text-left uppercase pl-2";
   const handleButtonClick = (event) => {
@@ -175,7 +176,7 @@ const DrawerDemo = ({ item }) => {
   };
   return (
     <button onClick={handleButtonClick}>
-      <Drawer>
+      <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
           <button className="text-black">
             <FaCircleInfo size={25} />
@@ -188,7 +189,15 @@ const DrawerDemo = ({ item }) => {
               <DrawerDescription>
                 You can find all the details here below
               </DrawerDescription>
-              <div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="
+                dark:border-white border-1 border-black
+                dark:hover:bg-MyGray hover:bg-MyGray hover:text-white w-10 absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              >
+                X
+              </button>
+              <div className="h-full">
                 <div
                   className="border-1 dark:border-white border-black
                 grid grid-cols-2 align-middle justify-center items-center
@@ -214,13 +223,16 @@ const DrawerDemo = ({ item }) => {
                 </div>
               </div>
             </DrawerHeader>
-            <DrawerFooter className="grid grid-cols-1 w-full h-full align-middle justify-center items-center">
+            <DrawerFooter
+              hidden
+              className="grid grid-cols-1 w-full h-full align-middle justify-center items-center"
+            >
               <div className="flex flex-col w-full h-full align-bottom items-center justify-center">
                 <DrawerClose asChild>
                   <button
                     className="bg-white text-black rounded-md cursor-pointer
                  border-1 border-black dark:border-white 
-                 dark:text-white dark:bg-background
+                 dark:text-white dark:bg-black
                  dark:hover:bg-MyGray dark:hover:text-white
                  hover:bg-MyGray hover:text-white
                  w-full h-full
