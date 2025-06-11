@@ -58,7 +58,7 @@ const Signin = () => {
           <ComponentDivLevel4>
             <div className="flex align-middle justify-center items-center h-full">
               <form onSubmit={handleSignIn}>
-                <p className="font-bold text-base">Sign In</p>
+                <p className="font-bold text-base text-white">Sign In</p>
                 <p className="text-white">
                   Don't have an account yet?{" "}
                   <Link to="/signup" className="text-green-500">
