@@ -252,23 +252,30 @@ export const ComponentDivLevel4 = ({ children, marginTop = 5 }) => {
 
 export const ComponentLogoLeft = ({ children }) => {
   return (
-    <div>
-      <div className="p-10 h-full flex flex-col">
-        <div
-          className="text-[24px] p-1 bg-gradient-to-br from-orange-400 via-yellow-300 to-white
-                   bg-clip-text text-transparent text-center
-                   "
-        >
-          <p>Electricity Generator Consumption Billing</p>
-          <p>Control your Bills easily. No worries anymore</p>
-        </div>
-        <div className="align-middle justify-center items-center flex mt-0 bg-transparent">
-          <img
-            src={logo2}
-            alt="Logo"
-            className="text-transparent bg-transparent max-h-80 w-60 h-60"
-          />
-        </div>
+    <div
+      className="flex flex-col
+    w-full align-middle items-center justify-center p-5"
+    >
+      <div
+        className="flex flex-col bg-blue-400
+                  h-1/2 w-full
+                   align-middle justify-center items-center
+                   text-transparent text-center   bg-clip-tex
+                   bg-gradient-to-br from-orange-400 via-yellow-300 to-white
+                   bg-clip-text 
+                   sm:text-1xl 
+                   md:text-2xl 
+                   lg:text-3xl 
+                   xl:text-3xl"
+      >
+        <p>Electricity Generator Consumption Billing</p>
+        <p>Control your Bills easily. No worries anymore</p>
+      </div>
+      <div
+        className="align-middle justify-center items-center mt-0
+        flex flex-col  h-1/2 w-full"
+      >
+        <img src={logo2} alt="Logo" className="w-50 h-50" />
       </div>
     </div>
   );

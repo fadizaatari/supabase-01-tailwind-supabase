@@ -166,14 +166,11 @@ const Signup = () => {
       <ComponentDivLevel2>
         <ComponentDivLevel3>
           <ComponentDivLevel4>
-            <div className="p-1 flex flex-row w-full h-full">
-              <div className=" bg-gray-700 p-2 w-1/2 flex">
+            <div className="p-1 grid landscape:grid-cols-2 w-full h-full">
+              <div className=" bg-gray-700 p-2 flex">
                 <ComponentLogoLeft />
               </div>
-              <div
-                className="w-1/2 h-full grid grid-cols-1  items-center justify-between
-              align-middle p-1"
-              >
+              <div className="h-full grid grid-cols-1 items-center justify-between align-middle p-1">
                 <form onSubmit={handleSignUp}>
                   <div className="p-4 w-full flex flex-col">
                     <h2 className="font-bold pb-2 text-white">
