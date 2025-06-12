@@ -250,23 +250,23 @@ export const ComponentDivLevel4 = ({ children, marginTop = 5 }) => {
   );
 };
 
-export const ComponentLogoLeft = ({}) => {
+export const ComponentLogoLeft = ({ children }) => {
   return (
     <div>
-      <div className=" bg-gray-700 p-10 w-full h-full">
+      <div className="p-10 h-full flex flex-col">
         <div
-          className="text-2xl p-1 bg-gradient-to-br from-orange-400 via-yellow-300 to-white
-                   bg-clip-text text-transparent text-center"
+          className="text-[24px] p-1 bg-gradient-to-br from-orange-400 via-yellow-300 to-white
+                   bg-clip-text text-transparent text-center
+                   "
         >
-          <p className="shrink-0">Electricity Generator Consumption Billing</p>
+          <p>Electricity Generator Consumption Billing</p>
           <p>Control your Bills easily. No worries anymore</p>
         </div>
-        <div className="align-middle justify-center items-center flex mt-5 bg-transparent">
+        <div className="align-middle justify-center items-center flex mt-0 bg-transparent">
           <img
             src={logo2}
             alt="Logo"
-            sizes="200X20"
-            className="text-transparent bg-transparent max-h-80"
+            className="text-transparent bg-transparent max-h-80 w-60 h-60"
           />
         </div>
       </div>
