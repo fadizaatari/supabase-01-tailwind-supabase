@@ -1,3 +1,4 @@
+import logo2 from "../assets/logo2.png";
 import React, { useState, useEffect } from "react";
 
 import { FaHome } from "react-icons/fa";
@@ -245,6 +246,30 @@ export const ComponentDivLevel4 = ({ children, marginTop = 5 }) => {
          `}
     >
       {children}
+    </div>
+  );
+};
+
+export const ComponentLogoLeft = ({}) => {
+  return (
+    <div>
+      <div className=" bg-gray-700 p-10 w-full h-full">
+        <div
+          className="text-2xl p-1 bg-gradient-to-br from-orange-400 via-yellow-300 to-white
+                   bg-clip-text text-transparent text-center"
+        >
+          <p className="shrink-0">Electricity Generator Consumption Billing</p>
+          <p>Control your Bills easily. No worries anymore</p>
+        </div>
+        <div className="align-middle justify-center items-center flex mt-5 bg-transparent">
+          <img
+            src={logo2}
+            alt="Logo"
+            sizes="200X20"
+            className="text-transparent bg-transparent max-h-80"
+          />
+        </div>
+      </div>
     </div>
   );
 };

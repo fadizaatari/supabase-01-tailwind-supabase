@@ -1,3 +1,13 @@
+import Header from "./Header";
+import {
+  ComponentBread,
+  ComponentDivLevel1,
+  ComponentDivLevel2,
+  ComponentDivLevel3,
+  ComponentDivLevel4,
+  ComponentLogoLeft,
+} from "./MyComponents.jsx";
+
 import { Toaster, toast } from "sonner";
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -150,76 +160,89 @@ const Signup = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center p-10 dark:bg-black b-white text-white text-lg">
-      <div className="bg-gray-800 p-6 text-white">
-        <form onSubmit={handleSignUp}>
-          <h2 className="font-bold pb-2">Sign up today!</h2>
-          <p>
-            Already have an account?{" "}
-            <Link to="/" className="text-green-500">
-              Sign in
-            </Link>
-          </p>
-          <div className="flex flex-col mt-5 text-black bg-white">
-            {/* <label htmlFor="Password">Password</label> */}
-            <input
-              onChange={handleInputChangeFirstName}
-              ref={firstNameInputRef}
-              className="p-3"
-              type="first_name"
-              name="first_name"
-              id="first_name"
-              placeholder="Please enter First Name"
-            />
-          </div>
-          <div className="flex flex-col mt-5 text-black bg-white">
-            {/* <label htmlFor="Password">Password</label> */}
-            <input
-              onChange={handleInputChangeLastName}
-              ref={lastNameInputRef}
-              className="p-3"
-              type="last_name"
-              name="last_name"
-              id="last_name"
-              placeholder="Please enter Last Name"
-            />
-          </div>
-          <div className="flex flex-col mt-5 text-black bg-white">
-            {/* <label htmlFor="Email">Email</label> */}
-            <input
-              onChange={handleInputChangeEmail}
-              ref={emailInputRef}
-              className="p-3"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-            />
-          </div>
-          <div className="flex flex-col mt-5 text-black bg-white">
-            {/* <label htmlFor="Password">Password</label> */}
-            <input
-              onChange={handleInputChangePassword}
-              ref={passwordInputRef}
-              className="p-3"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800"
-          >
-            Sign Up
-          </button>
-          {error2 && <p className="text-red-600 text-center pt-4">{error2}</p>}
-          <Toaster position="top-right" richColors />
-        </form>
-      </div>
-    </div>
+    <ComponentDivLevel1>
+      <Header showMenu={false} />
+      <ComponentBread showBorder={false} showHome={false} />
+      <ComponentDivLevel2>
+        <ComponentDivLevel3>
+          <ComponentDivLevel4>
+            <div className="p-1 flex flex-row w-full h-full">
+              <ComponentLogoLeft />
+              <div className="w-1/2 h-full flex align-middle justify-center items-center">
+                <form onSubmit={handleSignUp}>
+                  <h2 className="font-bold pb-2 text-white">Sign up today!</h2>
+                  <p className="text-white">
+                    Already have an account?{" "}
+                    <Link to="/" className="text-green-500">
+                      Sign in
+                    </Link>
+                  </p>
+                  <div className="flex flex-col mt-5 text-black bg-white">
+                    {/* <label htmlFor="Password">Password</label> */}
+                    <input
+                      onChange={handleInputChangeFirstName}
+                      ref={firstNameInputRef}
+                      className="p-3"
+                      type="first_name"
+                      name="first_name"
+                      id="first_name"
+                      placeholder="Please enter First Name"
+                    />
+                  </div>
+                  <div className="flex flex-col mt-5 text-black bg-white">
+                    {/* <label htmlFor="Password">Password</label> */}
+                    <input
+                      onChange={handleInputChangeLastName}
+                      ref={lastNameInputRef}
+                      className="p-3"
+                      type="last_name"
+                      name="last_name"
+                      id="last_name"
+                      placeholder="Please enter Last Name"
+                    />
+                  </div>
+                  <div className="flex flex-col mt-5 text-black bg-white">
+                    {/* <label htmlFor="Email">Email</label> */}
+                    <input
+                      onChange={handleInputChangeEmail}
+                      ref={emailInputRef}
+                      className="p-3"
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div className="flex flex-col mt-5 text-black bg-white">
+                    {/* <label htmlFor="Password">Password</label> */}
+                    <input
+                      onChange={handleInputChangePassword}
+                      ref={passwordInputRef}
+                      className="p-3"
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full mt-4 bg-green-600 text-white rounded-md  h-13 hover:bg-green-800"
+                  >
+                    Sign Up
+                  </button>
+                  {error2 && (
+                    <p className="text-red-600 text-center pt-4">{error2}</p>
+                  )}
+                  <Toaster position="top-right" richColors />
+                </form>
+              </div>
+            </div>
+          </ComponentDivLevel4>
+        </ComponentDivLevel3>
+      </ComponentDivLevel2>
+    </ComponentDivLevel1>
   );
 };
 
