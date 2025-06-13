@@ -14,7 +14,6 @@ import News from "./components/News";
 export const router = createBrowserRouter([
   { path: "/test2", element: <Test2 /> },
   { path: "/*", element: <NotFound /> },
-  { path: "/", element: <App /> },
   { path: "/signup", element: <Signup /> },
   { path: "/signin", element: <Signin /> },
   {
@@ -54,6 +53,14 @@ export const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <News />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/",
+    element: (
+      <PrivateRoute>
+        <App />
       </PrivateRoute>
     ),
   },

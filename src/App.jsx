@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Signin from "./components/Signin";
 
 import { UserAuth } from "./context/AuthContext";
+import Dashboard from "./routes/Dashboard";
 
 function App() {
   const { user } = UserAuth();
@@ -15,11 +16,9 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // console.log(user);
-
   return (
     <>
-      <Signin />
+      <Dashboard />
     </>
   );
 }
