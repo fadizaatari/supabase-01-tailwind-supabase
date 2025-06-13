@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 import { MyButtonGreen, MyButtonAlertDialog } from "../components/MyComponents";
 import Header from "../components/Header";
 
-const Dashboard = () => {
+const Dashboard2 = () => {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
@@ -49,4 +49,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard2;
