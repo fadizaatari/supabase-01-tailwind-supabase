@@ -119,6 +119,7 @@ const Header = ({ showMenu = true }) => {
             {isOpen && (
               <div className="absolute right-0 mt-2 w-38 bg-gray-800 rounded shadow-lg z-10">
                 <Link
+                  hidden
                   to="/dashboard"
                   className="block rounded py-2 px-4 text-white hover:bg-white hover:text-gray-800"
                 >
