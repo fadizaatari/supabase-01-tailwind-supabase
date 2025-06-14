@@ -1,7 +1,4 @@
 import {
-  ErrorFetchingData,
-  LoadingData,
-  ComponentBlankPage,
   ComponentBread,
   ComponentDivLevel1,
   ComponentDivLevel2,
@@ -9,7 +6,7 @@ import {
   ComponentDivLevel4,
 } from "./MyComponents.jsx";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import Header from "../components/Header";

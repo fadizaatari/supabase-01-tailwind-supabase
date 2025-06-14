@@ -8,8 +8,9 @@ import logo from "../assets/logo.png";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 import { Separator } from "@/components/ui/separator";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import { ComponentWindowResizer } from "./MyComponents";
 
 const ThemeContext = createContext(null);
 
@@ -90,10 +91,12 @@ const Header = ({ showMenu = true }) => {
       <Link to="/">
         <img src={logo} alt="My Company Logo" className="w-5 h-5" />
       </Link>
+      <ComponentWindowResizer />
       {/* Middle side */}
       <p className="sm:text-sm md:text-2xl lg:text-3xl dark:bg-black dark:text-white bg-white text-black font-orbitron">
         Electricity Generator Consumption Billing
       </p>
+
       {/* Right side - Dropdown */}
 
       <div className={`grid ${showMenu ? "grid-cols-2 gap-3" : "grid-cols-1"}`}>

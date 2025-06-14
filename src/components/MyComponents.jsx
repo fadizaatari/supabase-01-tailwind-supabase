@@ -280,3 +280,38 @@ export const ComponentLogoLeft = ({ children }) => {
     </div>
   );
 };
+
+export const ComponentWindowResizer = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    // Function to update the window size state
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Add event listener when the component mounts
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+
+  return (
+    <div className="font-bold text-base flex flex-col text-green-400">
+      <div>
+        <p>
+          {windowSize.width} x {windowSize.height}
+        </p>
+      </div>
+    </div>
+  );
+};
