@@ -33,7 +33,7 @@ const Dashboard = () => {
                   isBouncing ? "translate-x-[100%]" : ""
                 }  transition-all duration-5000 `}
             >
-              <h2 className="flex flex-col w-full text-4xl p-5 text-center">
+              <h2 className="flex flex-col w-full text-4xl p-5 text-center text-white">
                 <p>
                   Hello,
                   <span className="font-bold"> {session?.user?.email} </span>
